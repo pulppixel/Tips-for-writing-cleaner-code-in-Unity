@@ -15,13 +15,13 @@ namespace Tips.Part_1_Result
         public float SpeedChangeRate = 10.0f;
         public float FallTimeout = 0.15f;
 
-        private CharacterController _controller;
-        private IAgentMovementInput _input;
-        private float _speed;
-        private float _targetRotation = 0.0f;
-        private float _rotationVelocity;
-        private float _verticalVelocity;
-        private float _fallTimeoutDelta;
+        private CharacterController m_controller;
+        private IAgentMovementInput m_input;
+        private float m_speed;
+        private float m_targetRotation = 0.0f;
+        private float m_rotationVelocity;
+        private float m_verticalVelocity;
+        private float m_fallTimeoutDelta;
 
         [Header("Grounded Check")]
         public float Gravity = -15.0f;
@@ -35,53 +35,53 @@ namespace Tips.Part_1_Result
         public string AnimationGroundedBool;
         public string AnimationFallTrigger;
 
-        private Animator _animator;
-        private float _animationMovementSpeed;
+        private Animator m_animator;
+        private float m_animationMovementSpeed;
         //private GameObject _mainCamera;
         [SerializeField]
-        private AgentRoatationStrategy _rotationStrategy;
+        private AgentRotationStrategy m_rotationStrategy;
         private void Awake()
         {
             // get a reference to our main camera
-            if (_rotationStrategy == null)
+            if (m_rotationStrategy == null)
             {
-                _rotationStrategy = GetComponent<AgentRoatationStrategy>();
+                m_rotationStrategy = GetComponent<AgentRotationStrategy>();
             }
-            _animator = GetComponent<Animator>();
-            _controller = GetComponent<CharacterController>();
-            _input = GetComponent<IAgentMovementInput>();
+            m_animator = GetComponent<Animator>();
+            m_controller = GetComponent<CharacterController>();
+            m_input = GetComponent<IAgentMovementInput>();
         }
 
         private void Update()
         {
             if (Grounded == false)
             {
-                _verticalVelocity += Gravity * Time.deltaTime;
-                _fallTimeoutDelta -= Time.deltaTime;
-                if (_fallTimeoutDelta <= 0 && StairsGrounded == false)
+                m_verticalVelocity += Gravity * Time.deltaTime;
+                m_fallTimeoutDelta -= Time.deltaTime;
+                if (m_fallTimeoutDelta <= 0 && StairsGrounded == false)
                 {
-                    _animator.SetTrigger(AnimationFallTrigger);
+                    m_animator.SetTrigger(AnimationFallTrigger);
                 }
             }
             else
             {
-                _verticalVelocity = 0;
-                _fallTimeoutDelta = FallTimeout;
-                _animator.ResetTrigger(AnimationFallTrigger);
+                m_verticalVelocity = 0;
+                m_fallTimeoutDelta = FallTimeout;
+                m_animator.ResetTrigger(AnimationFallTrigger);
             }
 
             CharacterMovementCalculation();
 
-            _targetRotation = _rotationStrategy.RotationCalculation(_input.MovementInput, transform, ref _rotationVelocity, RotationSmoothTime, _targetRotation);
+            m_targetRotation = m_rotationStrategy.RotationCalculation(m_input.MovementInput, transform, ref m_rotationVelocity, RotationSmoothTime, m_targetRotation);
             
-            Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            Vector3 targetDirection = Quaternion.Euler(0.0f, m_targetRotation, 0.0f) * Vector3.forward;
 
             //move the character controller
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            m_controller.Move(targetDirection.normalized * (m_speed * Time.deltaTime) +
+                             new Vector3(0.0f, m_verticalVelocity, 0.0f) * Time.deltaTime);
 
             //play animations
-            _animator.SetFloat(AnimationSpeedFloat, _animationMovementSpeed);
+            m_animator.SetFloat(AnimationSpeedFloat, m_animationMovementSpeed);
         }
 
         //[SerializeField]
@@ -120,17 +120,17 @@ namespace Tips.Part_1_Result
 
         private void CharacterMovementCalculation()
         {
-            float targetSpeed = _input.SprintInput ? SprintSpeed : MoveSpeed;
+            float targetSpeed = m_input.SprintInput ? SprintSpeed : MoveSpeed;
 
 
-            if (_input.MovementInput == Vector2.zero)
+            if (m_input.MovementInput == Vector2.zero)
                 targetSpeed = 0.0f;
 
             // a reference to the players current horizontal velocity
-            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            float currentHorizontalSpeed = new Vector3(m_controller.velocity.x, 0.0f, m_controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
-            float inputMagnitude = _input.MovementInput.magnitude;
+            float inputMagnitude = m_input.MovementInput.magnitude;
 
             // accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
@@ -138,27 +138,27 @@ namespace Tips.Part_1_Result
             {
                 // creates curved result rather than a linear one giving a more organic speed change
                 // note T in Lerp is clamped, so we don't need to clamp our speed
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+                m_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
                     Time.deltaTime * SpeedChangeRate);
 
                 // round speed to 3 decimal places
-                _speed = Mathf.Round(_speed * 1000f) / 1000f;
+                m_speed = Mathf.Round(m_speed * 1000f) / 1000f;
             }
             else
             {
-                _speed = targetSpeed;
+                m_speed = targetSpeed;
             }
 
-            _animationMovementSpeed = Mathf.Lerp(_animationMovementSpeed, targetSpeed, Time.deltaTime * SpeedChangeRate);
-            if (_animationMovementSpeed < 0.01f)
-                _animationMovementSpeed = 0f;
+            m_animationMovementSpeed = Mathf.Lerp(m_animationMovementSpeed, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            if (m_animationMovementSpeed < 0.01f)
+                m_animationMovementSpeed = 0f;
         }
 
         private void FixedUpdate()
         {
             Grounded = GroundedCheck(GroundedOffset);
             StairsGrounded = GroundedCheck(StairOffset);
-            _animator.SetBool(AnimationGroundedBool, Grounded);
+            m_animator.SetBool(AnimationGroundedBool, Grounded);
         }
 
         private bool GroundedCheck(float groundedOffset)

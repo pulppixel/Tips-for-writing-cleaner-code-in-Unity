@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows;
 
-namespace Tips.Part_1_Result
+namespace Tips.Part_2_Result
 {
     public class PlayerRotationStrategy : AgentRotationStrategy
     {

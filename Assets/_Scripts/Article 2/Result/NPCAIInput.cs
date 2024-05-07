@@ -4,7 +4,7 @@ using Tips.Part_1_Result;
 using UnityEngine;
 using UnityEngineInternal;
 
-namespace Tips.Part_1_Result
+namespace Tips.Part_2_Result
 {
     public class NPCAIInput : MonoBehaviour, IAgentMovementInput
     {

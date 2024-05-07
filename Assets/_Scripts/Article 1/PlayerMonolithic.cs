@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using PlayerInput = UnityEngine.InputSystem.PlayerInput;
 using System;
 
-namespace Tips.Part_1_Start
+namespace Tips.Partm_1m_Start
 {
     public class PlayerMonolithic : MonoBehaviour
     {
@@ -18,13 +18,13 @@ namespace Tips.Part_1_Start
         public float SpeedChangeRate = 10.0f;
         public float FallTimeout = 0.15f;
 
-        private CharacterController _controller;
-        private PlayerInput _input;
-        private float _speed;
-        private float _targetRotation = 0.0f;
-        private float _rotationVelocity;
-        private float _verticalVelocity;
-        private float _fallTimeoutDelta;
+        private CharacterController m_controller;
+        private PlayerInput m_input;
+        private float m_speed;
+        private float m_targetRotation = 0.0f;
+        private float m_rotationVelocity;
+        private float m_verticalVelocity;
+        private float m_fallTimeoutDelta;
 
         [Header("Grounded Check")]
         public float Gravity = -15.0f;
@@ -38,70 +38,70 @@ namespace Tips.Part_1_Start
         public float TopCameraLimit = 70.0f;
         public float BottomCameraLimit = -30.0f;
 
-        private GameObject _mainCamera;
-        private float _cinemachineTargetYaw;
-        private float _cinemachineTargetPitch;
-        private const float _cameraRotationThreshold = 0.01f;
+        private GameObject m_mainCamera;
+        private float m_cinemachineTargetYaw;
+        private float m_cinemachineTargetPitch;
+        private const float m_cameraRotationThreshold = 0.01f;
 
         [Header("Animations")]
         public string AnimationSpeedFloat;
         public string AnimationGroundedBool;
         public string AnimationFallTrigger;
 
-        private Animator _animator;
-        private float _animationMovementSpeed;
+        private Animator m_animator;
+        private float m_animationMovementSpeed;
 
         //Input
-        private Vector2 _movementInput, _lookInput;
-        private bool _isSprintingInput;
+        private Vector2 m_movementInput, m_lookInput;
+        private bool m_isSprintingInput;
 
         
 
         private void Awake()
         {
             // get a reference to our main camera
-            if (_mainCamera == null)
+            if (m_mainCamera == null)
             {
-                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+                m_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
-            _animator = GetComponent<Animator>();
-            _controller = GetComponent<CharacterController>();
-            _input = GetComponent<PlayerInput>();
+            m_animator = GetComponent<Animator>();
+            m_controller = GetComponent<CharacterController>();
+            m_input = GetComponent<PlayerInput>();
         }
 
         #region INPUT
         private void OnEnable()
         {
-            _input.actions["Player/Move"].performed += OnMove;
-            _input.actions["Player/Move"].canceled += OnMove;
-            _input.actions["Player/Look"].performed += OnLook;
-            _input.actions["Player/Look"].canceled += OnLook;
-            _input.actions["Player/Sprint"].performed += OnSprint;
+            m_input.actions["Player/Move"].performed += OnMove;
+            m_input.actions["Player/Move"].canceled += OnMove;
+            m_input.actions["Player/Look"].performed += OnLook;
+            m_input.actions["Player/Look"].canceled += OnLook;
+            m_input.actions["Player/Sprint"].performed += OnSprint;
         }
 
         private void OnDisable()
         {
-            _input.actions["Player/Move"].performed -= OnMove;
-            _input.actions["Player/Move"].canceled -= OnMove;
-            _input.actions["Player/Look"].performed -= OnLook;
-            _input.actions["Player/Look"].canceled -= OnLook;
-            _input.actions["Player/Sprint"].performed -= OnSprint;
+            m_input.actions["Player/Move"].performed -= OnMove;
+            m_input.actions["Player/Move"].canceled -= OnMove;
+            m_input.actions["Player/Look"].performed -= OnLook;
+            m_input.actions["Player/Look"].canceled -= OnLook;
+            m_input.actions["Player/Sprint"].performed -= OnSprint;
         }
 
         private void OnLook(InputAction.CallbackContext context)
         {
-            _lookInput = context.ReadValue<Vector2>();
+            m_lookInput = context.ReadValue<Vector2>();
 
         }
 
         private void OnMove(InputAction.CallbackContext context)
         {
-            _movementInput = context.ReadValue<Vector2>();
+            m_movementInput = context.ReadValue<Vector2>();
         }
 
         private void OnSprint(InputAction.CallbackContext context)
         {
-            _isSprintingInput = context.ReadValueAsButton();
+            m_isSprintingInput = context.ReadValueAsButton();
 
         }
 
@@ -111,44 +111,44 @@ namespace Tips.Part_1_Start
         {
             if (Grounded == false)
             {
-                _verticalVelocity += Gravity * Time.deltaTime;
-                _fallTimeoutDelta -= Time.deltaTime;
-                if (_fallTimeoutDelta <= 0 && StairsGrounded == false)
+                m_verticalVelocity += Gravity * Time.deltaTime;
+                m_fallTimeoutDelta -= Time.deltaTime;
+                if (m_fallTimeoutDelta <= 0 && StairsGrounded == false)
                 {
-                    _animator.SetTrigger(AnimationFallTrigger);
+                    m_animator.SetTrigger(AnimationFallTrigger);
                 }
             }
             else
             {
-                _verticalVelocity = 0;
-                _fallTimeoutDelta = FallTimeout;
-                _animator.ResetTrigger(AnimationFallTrigger);
+                m_verticalVelocity = 0;
+                m_fallTimeoutDelta = FallTimeout;
+                m_animator.ResetTrigger(AnimationFallTrigger);
             }
 
             CharacterMovementCalculation();
             RotationCalculation();
 
-            Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            Vector3 targetDirection = Quaternion.Euler(0.0f, m_targetRotation, 0.0f) * Vector3.forward;
 
             //move the character controller
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            m_controller.Move(targetDirection.normalized * (m_speed * Time.deltaTime) +
+                             new Vector3(0.0f, m_verticalVelocity, 0.0f) * Time.deltaTime);
 
             //play animations
-            _animator.SetFloat(AnimationSpeedFloat, _animationMovementSpeed);
+            m_animator.SetFloat(AnimationSpeedFloat, m_animationMovementSpeed);
         }
 
         private void RotationCalculation()
         {
             // normalise input direction
-            Vector3 inputDirection = new Vector3(_movementInput.x, 0.0f, _movementInput.y).normalized;
+            Vector3 inputDirection = new Vector3(m_movementInput.x, 0.0f, m_movementInput.y).normalized;
 
             //Rotation Code
-            if (_movementInput != Vector2.zero)
+            if (m_movementInput != Vector2.zero)
             {
-                _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                                  _mainCamera.transform.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
+                m_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
+                                  m_mainCamera.transform.eulerAngles.y;
+                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, m_targetRotation, ref m_rotationVelocity,
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
@@ -158,17 +158,17 @@ namespace Tips.Part_1_Start
 
         private void CharacterMovementCalculation()
         {
-            float targetSpeed = _isSprintingInput ? SprintSpeed : MoveSpeed;
+            float targetSpeed = m_isSprintingInput ? SprintSpeed : MoveSpeed;
 
 
-            if (_movementInput == Vector2.zero)
+            if (m_movementInput == Vector2.zero)
                 targetSpeed = 0.0f;
 
             // a reference to the players current horizontal velocity
-            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            float currentHorizontalSpeed = new Vector3(m_controller.velocity.x, 0.0f, m_controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
-            float inputMagnitude = _movementInput.magnitude;
+            float inputMagnitude = m_movementInput.magnitude;
 
             // accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
@@ -176,20 +176,20 @@ namespace Tips.Part_1_Start
             {
                 // creates curved result rather than a linear one giving a more organic speed change
                 // note T in Lerp is clamped, so we don't need to clamp our speed
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+                m_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
                     Time.deltaTime * SpeedChangeRate);
 
                 // round speed to 3 decimal places
-                _speed = Mathf.Round(_speed * 1000f) / 1000f;
+                m_speed = Mathf.Round(m_speed * 1000f) / 1000f;
             }
             else
             {
-                _speed = targetSpeed;
+                m_speed = targetSpeed;
             }
 
-            _animationMovementSpeed = Mathf.Lerp(_animationMovementSpeed, targetSpeed, Time.deltaTime * SpeedChangeRate);
-            if (_animationMovementSpeed < 0.01f)
-                _animationMovementSpeed = 0f;
+            m_animationMovementSpeed = Mathf.Lerp(m_animationMovementSpeed, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            if (m_animationMovementSpeed < 0.01f)
+                m_animationMovementSpeed = 0f;
         }
 
         private void LateUpdate()
@@ -200,22 +200,22 @@ namespace Tips.Part_1_Start
         private void CameraRotation()
         {
             // if there is an input and camera position is not fixed
-            if (_lookInput.sqrMagnitude >= _cameraRotationThreshold )
+            if (m_lookInput.sqrMagnitude >= m_cameraRotationThreshold )
             {
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = 1.0f;
 
-                _cinemachineTargetYaw += _lookInput.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _lookInput.y * deltaTimeMultiplier;
+                m_cinemachineTargetYaw += m_lookInput.x * deltaTimeMultiplier;
+                m_cinemachineTargetPitch += m_lookInput.y * deltaTimeMultiplier;
             }
 
             // clamp our rotations so our values are limited 360 degrees
-            _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-            _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomCameraLimit, TopCameraLimit);
+            m_cinemachineTargetYaw = ClampAngle(m_cinemachineTargetYaw, float.MinValue, float.MaxValue);
+            m_cinemachineTargetPitch = ClampAngle(m_cinemachineTargetPitch, BottomCameraLimit, TopCameraLimit);
 
             // Cinemachine will follow this target
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch,
-                _cinemachineTargetYaw, 0.0f);
+            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(m_cinemachineTargetPitch,
+                m_cinemachineTargetYaw, 0.0f);
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -229,7 +229,7 @@ namespace Tips.Part_1_Start
         {
             Grounded = GroundedCheck(GroundedOffset);
             StairsGrounded = GroundedCheck(StairOffset);
-            _animator.SetBool(AnimationGroundedBool, Grounded);
+            m_animator.SetBool(AnimationGroundedBool, Grounded);
         }
 
         private bool GroundedCheck(float groundedOffset)
