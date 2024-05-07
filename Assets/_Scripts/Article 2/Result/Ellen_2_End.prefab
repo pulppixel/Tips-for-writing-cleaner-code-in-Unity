@@ -88,7 +88,7 @@ Animator:
   m_GameObject: {fileID: 1650086587063431671}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a5674d01884853d4e8f2386a171e14d9, type: 3}
-  m_Controller: {fileID: 9100000, guid: f72336f1c36775745bd70e8117107c25, type: 2}
+  m_Controller: {fileID: 9100000, guid: fc5b3c3676bc322409e2d6fbfceed5be, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -332,6 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8e2fc27add14f4bb1645d3974358ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Grounded>k__BackingField: 0
+  <StairsGrounded>k__BackingField: 0
   m_gravity: -15
   m_groundedOffset: 0.21
   m_stairOffset: 0.02

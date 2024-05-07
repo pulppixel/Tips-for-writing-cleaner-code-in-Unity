@@ -1478,6 +1478,11 @@ PrefabInstance:
       propertyPath: AnimationJumpTrigger
       value: Jump
       objectReference: {fileID: 0}
+    - target: {fileID: 1650086587055997905, guid: e4ead33f600f6934294f278fc30c015e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f72336f1c36775745bd70e8117107c25, type: 2}
     - target: {fileID: 1650086587063266711, guid: e4ead33f600f6934294f278fc30c015e,
         type: 3}
       propertyPath: m_LocalPosition.x
