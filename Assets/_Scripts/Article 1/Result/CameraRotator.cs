@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Tips.Part_1_Result;
 using UnityEngine;
-using UnityEngine.Windows;
 
 namespace Tips.Part_1_Result
 {

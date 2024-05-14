@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using Tips.Part_2_Result;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
-using UnityEngine.Windows;
 
-namespace Tips.Part_2_Result
+namespace Tips.Part_2_End
 {
     public class BasicCharacterControllerMover : MonoBehaviour
     {
@@ -20,6 +15,8 @@ namespace Tips.Part_2_Result
 
         [SerializeField]
         private AgentRotationStrategy m_rotationStrategy;
+
+        public Vector3 CurrentVelocity { get; private set; }
 
         private void Awake()
         {
@@ -41,9 +38,10 @@ namespace Tips.Part_2_Result
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, m_targetRotation, 0.0f) * Vector3.forward;
 
+            CurrentVelocity = targetDirection.normalized * input.normalized.magnitude * (m_speed * Time.deltaTime) +
+                                         new Vector3(0.0f, input.y, 0.0f) * Time.deltaTime;
             //move the character controller
-            m_controller.Move(targetDirection.normalized * (m_speed * Time.deltaTime) +
-                             new Vector3(0.0f, input.y, 0.0f) * Time.deltaTime);
+            m_controller.Move(CurrentVelocity);
         }
 
         private void CharacterMovementCalculation(Vector2 horizontalInput, float targetSpeed)

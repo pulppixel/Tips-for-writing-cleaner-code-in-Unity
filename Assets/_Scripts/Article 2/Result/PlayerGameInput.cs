@@ -1,17 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows;
 
-namespace Tips.Part_2_Result
+namespace Tips.Part_2_End
 {
     public class PlayerGameInput : MonoBehaviour, IAgentMovementInput, IAgentJumpInput
     {
         private PlayerInput m_input;
 
-        public event Action OnJumpInput;
+        public bool JumpInput { get; private set; }
         public Vector2 MovementInput { get; private set; }
         public Vector2 CameraInput { get; private set; }
         public bool SprintInput { get; private set; }
@@ -23,6 +19,7 @@ namespace Tips.Part_2_Result
         private void OnEnable()
         {
             m_input.actions["Player/Jump"].performed += OnJump;
+            m_input.actions["Player/Jump"].canceled += OnJump;
             m_input.actions["Player/Move"].performed += OnMove;
             m_input.actions["Player/Move"].canceled += OnMove;
             m_input.actions["Player/Look"].performed += OnLook;
@@ -33,6 +30,7 @@ namespace Tips.Part_2_Result
         private void OnDisable()
         {
             m_input.actions["Player/Jump"].performed -= OnJump;
+            m_input.actions["Player/Jump"].canceled -= OnJump;
             m_input.actions["Player/Move"].performed -= OnMove;
             m_input.actions["Player/Move"].canceled -= OnMove;
             m_input.actions["Player/Look"].performed -= OnLook;
@@ -42,7 +40,7 @@ namespace Tips.Part_2_Result
 
         private void OnJump(InputAction.CallbackContext context)
         {
-            OnJumpInput?.Invoke();
+            JumpInput = context.ReadValueAsButton();
         }
         private void OnLook(InputAction.CallbackContext context)
         {

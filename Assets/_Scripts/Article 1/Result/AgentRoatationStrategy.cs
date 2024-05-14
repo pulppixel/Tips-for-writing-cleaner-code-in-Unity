@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+namespace Tips.Part_1_Result
+{
 
     public abstract class AgentRoatationStrategy : MonoBehaviour
     {
         public float RotationCalculation(Vector2 movementInput, Transform agentTransform, ref float rotationVelocity, float RotationSmoothTime, float targetRotation)
         {
-        Vector3 inputDirection = new Vector3(movementInput.x, 0.0f, movementInput.y).normalized;
-        if (movementInput != Vector2.zero)
+            Vector3 inputDirection = new Vector3(movementInput.x, 0.0f, movementInput.y).normalized;
+            if (movementInput != Vector2.zero)
             {
 
                 targetRotation = RotationStrategy(inputDirection);
@@ -20,5 +21,6 @@ using UnityEngine;
             return targetRotation;
         }
 
-        protected abstract float RotationStrategy(Vector3 inputDirection); 
+        protected abstract float RotationStrategy(Vector3 inputDirection);
     }
+}

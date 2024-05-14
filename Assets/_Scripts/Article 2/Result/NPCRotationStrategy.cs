@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Tips.Part_2_Result
+namespace Tips.Part_2_End
 {
     public class NPCRotationStrategy : AgentRotationStrategy
     {

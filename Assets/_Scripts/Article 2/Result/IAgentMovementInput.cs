@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Tips.Part_2_Result
+namespace Tips.Part_2_End
 {
     public interface IAgentMovementInput
     {

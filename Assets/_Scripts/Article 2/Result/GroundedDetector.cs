@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Tips.Part_2_Result
+namespace Tips.Part_2_End
 {
     public class GroundedDetector : MonoBehaviour
     {
@@ -12,7 +10,6 @@ namespace Tips.Part_2_Result
         public bool StairsGrounded { get; private set; }
 
         [Header("Grounded Check")]
-        [SerializeField] private float m_gravity = -15.0f;
         [SerializeField] private float m_groundedOffset = 0.14f, m_stairOffset = 0.02f;
         [SerializeField] private float m_groundedRadius = 0.28f;
 

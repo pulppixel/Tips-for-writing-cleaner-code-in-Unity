@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using Tips.Part_1_Result;
 using UnityEngine;
-using UnityEngineInternal;
 
-namespace Tips.Part_2_Result
+namespace Tips.Part_2_End
 {
     public class NPCAIInput : MonoBehaviour, IAgentMovementInput
     {

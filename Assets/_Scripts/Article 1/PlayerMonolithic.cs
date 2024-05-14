@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows;
 using UnityEngine.InputSystem;
 
 using PlayerInput = UnityEngine.InputSystem.PlayerInput;
-using System;
 
 namespace Tips.Partm_1m_Start
 {
