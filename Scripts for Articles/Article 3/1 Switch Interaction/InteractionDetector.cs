@@ -16,12 +16,7 @@ namespace Tips.Part_3_End
         public IInteractable CurrentInteractable { get; private set; }
         private Highlight m_currentHighlight;
 
-        private void Update()
-        {
-            DetectInteractable();
-        }
-
-        private void DetectInteractable()
+        public void DetectInteractable()
         {
             Collider[] result = Physics.OverlapSphere(transform.position + Vector3.up * m_height + transform.forward * m_detectionRange, m_detectionRadius, m_detectionLayer);
             if (result.Length > 0)
