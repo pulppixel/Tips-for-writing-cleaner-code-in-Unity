@@ -72,9 +72,6 @@ namespace Tips.Part_2_Start
             m_agentAnimations.SetFloat(AnimationFloatType.Speed, m_animationMovementSpeed);
         }
 
-        //Design Choice: I want Agent to call GroundCheck. We could make the object call it on its own as well.
-        //Tell Don't Ask Principle: We should Tell objects what do do rather than asking them for data and hoping
-        //that it is up to date.
         private void FixedUpdate()
         {
             m_groundDetector.GroundedCheck();

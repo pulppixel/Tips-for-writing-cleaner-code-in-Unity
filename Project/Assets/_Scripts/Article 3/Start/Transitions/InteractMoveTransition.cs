@@ -2,6 +2,11 @@ using System;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Another transition that waits a specified delay before transition occurs.
+    /// We should merge the LandMovement and this transitions into a more abstract "DelayedTransition"
+    /// to avoid code duplication.
+    /// </summary>
     public class InteractMoveTransition : ITransitionRule
     {
         private float m_interactAnimationDelay = 1.2f;

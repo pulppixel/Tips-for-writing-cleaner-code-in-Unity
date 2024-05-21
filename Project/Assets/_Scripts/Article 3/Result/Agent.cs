@@ -109,9 +109,8 @@ namespace Tips.Part_3_End
 
         private void Update()
         {
-            //I am following Tell Don't Ask principle to make the detector perform the detection before the State is updated.
-            //This way I can ensure the order of execution - that we already have performed the detection before we check the result
-            m_interactDetector.DetectInteractable();
+            if (m_interactDetector != null)
+                m_interactDetector.DetectInteractable();
             if (m_currentState != null)
                 m_currentState.Update(Time.deltaTime);
         }

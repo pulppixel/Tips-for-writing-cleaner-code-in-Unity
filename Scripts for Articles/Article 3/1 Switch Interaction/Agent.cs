@@ -108,7 +108,8 @@ namespace Tips.Part_3_End
 
         private void Update()
         {
-            m_interactDetector.DetectInteractable();
+            if (m_interactDetector != null)
+                m_interactDetector.DetectInteractable();
             if (m_currentState != null)
                 m_currentState.Update(Time.deltaTime);
         }
