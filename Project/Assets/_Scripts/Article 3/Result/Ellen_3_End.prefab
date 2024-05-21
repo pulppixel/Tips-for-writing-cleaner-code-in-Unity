@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 5274499783713833713}
   - component: {fileID: 335097342356583605}
   - component: {fileID: 5417889632001889270}
+  - component: {fileID: 6392474246861842258}
   m_Layer: 9
   m_Name: Ellen_3_End
   m_TagString: Untagged
@@ -720,6 +721,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_weapon: {fileID: 3195591661264623276}
+--- !u!114 &6392474246861842258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966308558987866377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdf5ed02c1fb3f4fab2224e5685e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MoveSpeed>k__BackingField: 2
+  <SprintSpeed>k__BackingField: 5.335
+  <Gravity>k__BackingField: -15
+  <SpeedChangeRate>k__BackingField: 10
+  <JumpHeight>k__BackingField: 1.2
+  <FallTimeout>k__BackingField: 0.15
 --- !u!1 &1058117882109095634
 GameObject:
   m_ObjectHideFlags: 0

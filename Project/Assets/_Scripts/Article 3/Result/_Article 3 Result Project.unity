@@ -1169,11 +1169,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 335097342356583605, guid: b6ce8cb72532d2345a5839e45b94afe4,
-        type: 3}
-      propertyPath: m_detectionLayer.m_Bits
-      value: 72
-      objectReference: {fileID: 0}
     - target: {fileID: 966308558987866377, guid: b6ce8cb72532d2345a5839e45b94afe4,
         type: 3}
       propertyPath: m_Name
@@ -1232,36 +1227,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 966308558987866377, guid: b6ce8cb72532d2345a5839e45b94afe4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 788639653435059105}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6ce8cb72532d2345a5839e45b94afe4, type: 3}
---- !u!1 &788639653435059104 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 966308558987866377, guid: b6ce8cb72532d2345a5839e45b94afe4,
-    type: 3}
-  m_PrefabInstance: {fileID: 788639653435059103}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &788639653435059105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788639653435059104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bdf5ed02c1fb3f4fab2224e5685e848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 2
-  <SprintSpeed>k__BackingField: 5.335
-  <Gravity>k__BackingField: -15
-  <SpeedChangeRate>k__BackingField: 10
-  <JumpHeight>k__BackingField: 1.2
-  <FallTimeout>k__BackingField: 0.15
 --- !u!1001 &1870589587683161553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1488,12 +1455,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &4348420021234037531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5197377387087425780, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 4856453725698583114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4856453725698583114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1502,11 +1463,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2752554390601754412, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
-        type: 3}
-      propertyPath: m_speedChangeRate
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4018143130870141931, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1562,16 +1518,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_3_End
       objectReference: {fileID: 0}
-    - target: {fileID: 5197377387087425780, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5197377387087425780, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8503627481440180438, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
         type: 3}
       propertyPath: m_waypoints.Array.data[0]
@@ -1595,19 +1541,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5197377387087425780, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8199567978601723814}
-    - targetCorrespondingSourceObject: {fileID: 5197377387087425780, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8199567978601723815}
-    - targetCorrespondingSourceObject: {fileID: 5197377387087425780, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8199567978601723816}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a9bdcf90e1c9714e81b2d5c60b314bd, type: 3}
 --- !u!4 &7531464763225138176 stripped
 Transform:
@@ -1615,60 +1549,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 788639653435059103}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &8199567978601723814
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4348420021234037531}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.23
-  m_Height: 1.07
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.04, z: 0}
---- !u!114 &8199567978601723815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4348420021234037531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42ba7138243576a4eaf351aa587c728e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_delayBetweenInteractions: 3
---- !u!114 &8199567978601723816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4348420021234037531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bdf5ed02c1fb3f4fab2224e5685e848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MoveSpeed>k__BackingField: 1.5
-  <SprintSpeed>k__BackingField: 3.335
-  <Gravity>k__BackingField: -15
-  <SpeedChangeRate>k__BackingField: 10
-  <JumpHeight>k__BackingField: 1.2
-  <FallTimeout>k__BackingField: 0.15
 --- !u!1001 &8345070700268369567
 PrefabInstance:
   m_ObjectHideFlags: 0

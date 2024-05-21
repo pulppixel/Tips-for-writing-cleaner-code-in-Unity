@@ -1103,7 +1103,10 @@ GameObject:
   - component: {fileID: 5615298086442975704}
   - component: {fileID: 2752554390601754412}
   - component: {fileID: 9013276742641130942}
-  m_Layer: 9
+  - component: {fileID: 2050779155163134746}
+  - component: {fileID: 4124543104987108048}
+  - component: {fileID: 6623168615845021263}
+  m_Layer: 6
   m_Name: NPC_3_End
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1118,7 +1121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5197377387087425780}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.256, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1310,6 +1313,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_objectRenderer: {fileID: 9068217423990328733}
   m_outlineLayerName: Outline
+--- !u!136 &2050779155163134746
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197377387087425780}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.23
+  m_Height: 1.07
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.04, z: 0}
+--- !u!114 &4124543104987108048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197377387087425780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ba7138243576a4eaf351aa587c728e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_delayBetweenInteractions: 3
+--- !u!114 &6623168615845021263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197377387087425780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdf5ed02c1fb3f4fab2224e5685e848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MoveSpeed>k__BackingField: 1.5
+  <SprintSpeed>k__BackingField: 3.335
+  <Gravity>k__BackingField: -15
+  <SpeedChangeRate>k__BackingField: 10
+  <JumpHeight>k__BackingField: 1.2
+  <FallTimeout>k__BackingField: 0.15
 --- !u!1 &5341894974881513041
 GameObject:
   m_ObjectHideFlags: 0
