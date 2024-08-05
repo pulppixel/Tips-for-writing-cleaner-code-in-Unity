@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6369193014902453436
+--- !u!114 &-6098900532414137259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22,7 +22,7 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 128
       PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: 2924a4e18e009cd4f8de49593f6b9dff, type: 2}
+    overrideMaterial: {fileID: 2100000, guid: 24df20a1f80ca5643b5c2af9e95b31a9, type: 2}
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
---- !u!114 &-2429798351676181128
+--- !u!114 &-5235908429077987122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,9 +137,9 @@ MonoBehaviour:
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  - {fileID: -6369193014902453436}
-  - {fileID: -2429798351676181128}
-  m_RendererFeatureMap: adc0de57c6d2eee5440bd7c8b2149ca778f582d4459f47de
+  - {fileID: -6098900532414137259}
+  - {fileID: -5235908429077987122}
+  m_RendererFeatureMap: adc0de57c6d2eee555bc0375475a5cabce405558065156b7
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
