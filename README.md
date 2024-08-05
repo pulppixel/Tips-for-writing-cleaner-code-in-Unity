@@ -51,6 +51,12 @@ In this article, we build a modular interaction system using interfaces, allowin
 
 It contains scripts that I reference in the Article series to make it easier for the readers to follow along.
 
+## Assets Used:
+- [3D Game Kit by Unity](https://assetstore.unity.com/packages/templates/tutorials/unity-learn-3d-game-kit-115747),
+- [3D Game Kit Lite by Unity](https://assetstore.unity.com/packages/templates/tutorials/3d-game-kit-lite-135162),
+- [Food Props by Unity by Unity](https://assetstore.unity.com/packages/3d/food-props-163295),
+- [Starter Assets - ThirdPerson by Unity](https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526)
+
 ## License
 
 This project is licensed under the MIT License.
