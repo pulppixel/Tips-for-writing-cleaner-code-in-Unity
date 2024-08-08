@@ -11,7 +11,7 @@ namespace Tips.Part_4_End
     {
         private AgentAnimations m_agentAnimations;
         private IAgentMovementInput m_input;
-        private BasicCharacterControllerMover m_mover;
+        private IAgentMover m_mover;
         private AgentStats m_agentStats;
 
         private float m_verticalVelocity;
@@ -19,7 +19,7 @@ namespace Tips.Part_4_End
         //MovementHelper allows us to remove code duplication that existed in Movement, Jump and Fall state so that we could move in those states
         MovementHelper m_movementHelper = new();
 
-        public JumpState(BasicCharacterControllerMover mover, AgentAnimations agentAnimations, IAgentMovementInput input, AgentStats agentStats)
+        public JumpState(IAgentMover mover, AgentAnimations agentAnimations, IAgentMovementInput input, AgentStats agentStats)
         {
             m_agentAnimations = agentAnimations;
             m_input = input;

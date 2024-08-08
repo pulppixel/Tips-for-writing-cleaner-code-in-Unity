@@ -2680,7 +2680,6 @@ GameObject:
   - component: {fileID: 7722099546078077031}
   - component: {fileID: 6729661955736274613}
   - component: {fileID: 200955511889560735}
-  - component: {fileID: 9210497554892894919}
   - component: {fileID: 4418154060892026350}
   - component: {fileID: 6967827613303394866}
   - component: {fileID: 9129083939460212962}
@@ -2690,6 +2689,7 @@ GameObject:
   - component: {fileID: 2064707443337072150}
   - component: {fileID: 5066864761176698909}
   - component: {fileID: 27866277396150431}
+  - component: {fileID: 1993774706536838616}
   m_Layer: 9
   m_Name: Ellen_4_End
   m_TagString: Untagged
@@ -2905,18 +2905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c374f3dda574da44c862b4f022e9b262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9210497554892894919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707658357046112330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40baa0eeba36d444801d127690d413c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4418154060892026350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3061,6 +3049,19 @@ MonoBehaviour:
   <SpeedChangeRate>k__BackingField: 10
   <JumpHeight>k__BackingField: 1.2
   <FallTimeout>k__BackingField: 0.15
+--- !u!114 &1993774706536838616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707658357046112330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2e97db2ee43b2419ebdde846a72692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_weaponHelper: {fileID: 5066864761176698909}
 --- !u!1 &6714244331504692922
 GameObject:
   m_ObjectHideFlags: 0

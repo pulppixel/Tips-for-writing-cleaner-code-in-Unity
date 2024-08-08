@@ -8,7 +8,7 @@ namespace Tips.Part_4_End
     /// </summary>
     public class MovementState : State
     {
-        private BasicCharacterControllerMover m_mover;
+        private IAgentMover m_mover;
         private GroundedDetector m_groundedDetector;
         private AgentAnimations m_agentAnimations;
         private IAgentMovementInput m_input;
@@ -21,7 +21,7 @@ namespace Tips.Part_4_End
         MovementHelper m_movementHelper = new();
 
         //One downside is a lengthy constructor. We could create a new object that encapsulates some of those.
-        public MovementState(BasicCharacterControllerMover mover, GroundedDetector groundedDetector, AgentAnimations agentAnimations, IAgentMovementInput movementInput, AgentStats agentStats)
+        public MovementState(IAgentMover mover, GroundedDetector groundedDetector, AgentAnimations agentAnimations, IAgentMovementInput movementInput, AgentStats agentStats)
         {
             m_mover = mover;
             m_groundedDetector = groundedDetector;

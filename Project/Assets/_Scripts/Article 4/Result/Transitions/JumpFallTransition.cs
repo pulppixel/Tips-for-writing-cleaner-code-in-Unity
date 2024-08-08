@@ -11,12 +11,12 @@ namespace Tips.Part_4_End
     {
         public Type NextState => typeof(FallState);
 
-        private BasicCharacterControllerMover m_mover;
+        private IAgentMover m_mover;
         //Delay to let the JumpSate call Move() on the m_mover so that we don't immediately
         //exit from Jump to Fall state
         private float m_checkDelay = 0.2f;
 
-        public JumpFallTransition(BasicCharacterControllerMover mover)
+        public JumpFallTransition(IAgentMover mover)
         {
             m_mover = mover;
         }
