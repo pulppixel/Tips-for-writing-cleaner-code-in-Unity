@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// PlayerAgent represents our Players behavior. We make it depend on
+    /// the Jump input and Interaction input and detector.
+    /// </summary>
     public class PlayerAgent : Agent
     {
         private IAgentJumpInput m_jumpInput;
@@ -23,6 +27,12 @@ namespace Tips.Part_4_End
             m_weaponHelper = GetComponent<WeaponHelper>();
         }
 
+        /// <summary>
+        /// We overrider StateFactory to allow for transition to JumpState and
+        /// InteractState and defined how those states should be created.
+        /// </summary>
+        /// <param name="stateType"></param>
+        /// <returns></returns>
         protected override State StateFactory(Type stateType)
         {
             State newState = null;

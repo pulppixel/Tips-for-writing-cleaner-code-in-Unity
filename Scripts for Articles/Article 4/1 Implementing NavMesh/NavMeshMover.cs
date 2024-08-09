@@ -3,6 +3,12 @@ using UnityEngine.AI;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// Mover implementation that uses the NavMesh system to move the agent.
+    /// We set the destination of the NavMeshAgent to the target position calculated
+    /// based on the newest input. This makes it possible to reuse it with keyboard based input 
+    /// or some AI input
+    /// </summary>
     public class NavMeshMover : MonoBehaviour, IAgentMover
     {
         private NavMeshAgent m_navMeshAgent;

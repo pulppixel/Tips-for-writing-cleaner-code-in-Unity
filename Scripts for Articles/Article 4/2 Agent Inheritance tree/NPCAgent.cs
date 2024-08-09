@@ -2,6 +2,10 @@ using System;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// Agent implementation that allows the NPC to wave at the player beside having the default states defined
+    /// inside the abstract Agent class
+    /// </summary>
     public class NPCAgent : Agent
     {
         private IAgentWaveInput m_waveInput;

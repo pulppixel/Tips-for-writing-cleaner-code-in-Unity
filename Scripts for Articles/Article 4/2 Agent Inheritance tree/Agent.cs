@@ -3,8 +3,16 @@ using UnityEngine;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// Abstract definition of an agent that can move, can be animated,
+    /// can access input and detect if it is grounded.
+    /// We also have here the basic State Machine implementation that we can
+    /// extend because it is a virtual protected method.
+    /// </summary>
     public abstract class Agent : MonoBehaviour
     {
+        // We use protected access modifier to
+        // allow the derived classes to access
         protected IAgentMover m_mover;
 
         protected IAgentMovementInput m_input;
@@ -17,6 +25,8 @@ namespace Tips.Part_4_End
 
         protected AgentStats m_agentStats;
 
+        // We make all methods protected virtual so that we can override them
+        // in the derived classes
         protected virtual void Awake()
         {
             m_input = GetComponent<IAgentMovementInput>();
@@ -31,7 +41,16 @@ namespace Tips.Part_4_End
         {
             TransitionToState(typeof(MovementState));
         }
-
+            /// <summary>
+        /// State Factory defines base states that we can transition to.
+        /// In the future it would be wise to extract this code to a separate
+        /// class as I can already see that many agents might overrider it
+        /// defining the same state transitions - like Player and JumpingNPC both
+        /// wanting to have JumpState defined here.
+        /// </summary>
+        /// <param name="stateType"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         protected virtual State StateFactory(Type stateType)
         {
             State newState = null;
@@ -57,6 +76,13 @@ namespace Tips.Part_4_End
             return newState;
         }
 
+        /// <summary>
+        /// Method to transition to a new state. It would be wise to keep it
+        /// private as this logic is tied to State Machine implementation. 
+        /// There is hardly any reason why derived classes would need to override
+        /// it.
+        /// </summary>
+        /// <param name="stateType"></param>
         private void TransitionToState(Type stateType)
         {
             State newState = StateFactory(stateType);

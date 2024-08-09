@@ -3,6 +3,10 @@ using UnityEngine.AI;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// This script uses the NavMesh system to calculate the path to the target and send the direction to the closest
+    /// corner of this path as Vector2
+    /// </summary>
     public class NavMeshMovementInput : MonoBehaviour, IAgentMovementInput
     {
         [SerializeField]

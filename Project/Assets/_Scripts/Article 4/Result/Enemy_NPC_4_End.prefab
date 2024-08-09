@@ -454,17 +454,19 @@ GameObject:
   m_Component:
   - component: {fileID: 2751392233326292020}
   - component: {fileID: 4897707746594685546}
-  - component: {fileID: 4633715028444645493}
   - component: {fileID: 1627492780551222117}
   - component: {fileID: 1234707760827380955}
   - component: {fileID: 835535488373829268}
-  - component: {fileID: 641583481157132141}
   - component: {fileID: 2173874012107151418}
-  - component: {fileID: 1537207220093424522}
   - component: {fileID: 4327552538672630248}
   - component: {fileID: 4145707658073480798}
-  - component: {fileID: 2783290341785421220}
   - component: {fileID: 4434215143193408044}
+  - component: {fileID: 447543164010073607}
+  - component: {fileID: 225887094049400097}
+  - component: {fileID: 2974029316833174897}
+  - component: {fileID: 206381258565732926}
+  - component: {fileID: 4802781048409381154}
+  - component: {fileID: 4568995796467921553}
   m_Layer: 6
   m_Name: Enemy_NPC_4_End
   m_TagString: Player
@@ -480,7 +482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2749592181760375641}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.256, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -511,32 +513,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!143 &4633715028444645493
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2749592181760375641}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.8
-  m_Radius: 0.28
-  m_SlopeLimit: 45
-  m_StepOffset: 0.25
-  m_SkinWidth: 0.02
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!114 &1627492780551222117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,19 +575,6 @@ CapsuleCollider:
   m_Height: 1.07
   m_Direction: 1
   m_Center: {x: 0, y: 1.04, z: 0}
---- !u!114 &641583481157132141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2749592181760375641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16118cfc85d4b6f4899b2cfa466c98b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_delayBetweenInteractions: 3
 --- !u!114 &2173874012107151418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,24 +587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9c8ec6069d9ce488c7563441ba8475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1537207220093424522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2749592181760375641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86d64a0f4317e8042bafccdf2cdecafc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_distanceThreshold: 1
 --- !u!114 &4327552538672630248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,21 +627,6 @@ MonoBehaviour:
   m_animationWaveTrigger: Wave
   m_animationInteractTrigger: Interact
   m_animationAttackTrigger: Attack
---- !u!114 &2783290341785421220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2749592181760375641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4299a775402039f408bf9e769444f131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_rotationSmoothTime: 0.12
-  m_speedChangeRate: 10
-  m_rotationStrategy: {fileID: 0}
 --- !u!114 &4434215143193408044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +645,111 @@ MonoBehaviour:
   <SpeedChangeRate>k__BackingField: 10
   <JumpHeight>k__BackingField: 1.2
   <FallTimeout>k__BackingField: 0.15
+--- !u!114 &447543164010073607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749592181760375641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df4f9ae7d36f3942a7e86cc9ca7b6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &225887094049400097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749592181760375641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2e2d8e8c899304a80d4e440afed473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_target: {fileID: 0}
+  m_pointReachedDistance: 0.3
+--- !u!195 &2974029316833174897
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749592181760375641}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.2
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.75
+  m_BaseOffset: -0.04
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &206381258565732926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749592181760375641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b610a8dcbdaff479d86c1135f143fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Target>k__BackingField: {fileID: 0}
+  m_attackDelay: 5
+  m_stoppingDistance: 0.6
+--- !u!114 &4802781048409381154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749592181760375641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d8033663f9fed468af18e080ce68f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4568995796467921553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749592181760375641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681d1d7095bae4d4da2c313a27a70282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerObject: {fileID: 0}
+  m_isOn: 1
+  m_detectionRadius: 5
+  OnDetectionUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 206381258565732926}
+        m_TargetAssemblyTypeName: Tips.Part_4_End.NavMeshEnemyAI, Ar
+        m_MethodName: set_Target
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2855149212869574422
 GameObject:
   m_ObjectHideFlags: 0

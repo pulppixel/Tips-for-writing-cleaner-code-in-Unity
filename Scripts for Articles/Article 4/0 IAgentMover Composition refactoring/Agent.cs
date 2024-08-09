@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// Agent is a reusable concept of a character entity - Player / NPC that can move, jump, wave and interact with objects.
+    /// Current implementation is using a Finite State Machine to handle the different states of the Agent.
+    /// One problem with this implementation is that we keep adding new dependencies to the Agent class while not 
+    /// every entity in our game uses it - NPC doesn't uses jump input but it needs to depend on it.
+    /// </summary>
     public class Agent : MonoBehaviour
     {
         private IAgentMover m_mover;

@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// This is the High Level script defining the behavior patter of the Enemy npc. It will move towards the target and attack it
+    /// when it reaches it. It will also wait for a delay before attacking again.
+    /// </summary>
     public class NavMeshEnemyAI : MonoBehaviour
     {
         private NavMeshMovementInput m_navMeshMovementInput;
