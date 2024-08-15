@@ -3,6 +3,11 @@ using UnityEngine.Events;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// Simple detector that uses a preassigned reference to player Transform to
+    /// measure the distance between the player and the object and to decide
+    /// if the player is detected or not.
+    /// </summary>
     public class SimplePlayerDetector : MonoBehaviour
     {
         /// <summary>
