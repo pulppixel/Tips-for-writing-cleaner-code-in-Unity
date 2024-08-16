@@ -93,7 +93,7 @@ namespace Tips.Part_5_End
                 m_currentState.OnTransition -= TransitionToState;
             }
             m_currentState = newState;
-            Debug.Log($"Entering {stateType}");
+            //Debug.Log($"Entering {stateType}");
             m_currentState.OnTransition += TransitionToState;
             m_currentState.Enter();
         }

@@ -1869,7 +1869,6 @@ GameObject:
   - component: {fileID: 1124520387439283134}
   - component: {fileID: 5786822243806159157}
   - component: {fileID: 7738264281579564468}
-  - component: {fileID: 6245428492328359798}
   - component: {fileID: 3922952481909039624}
   - component: {fileID: 6176478575377826093}
   - component: {fileID: 574609778198717145}
@@ -1879,6 +1878,11 @@ GameObject:
   - component: {fileID: 8473662296384892182}
   - component: {fileID: 1360877836900490740}
   - component: {fileID: 395871087914871756}
+  - component: {fileID: 6337464982428105929}
+  - component: {fileID: 2929111131983831631}
+  - component: {fileID: 9160923138634364119}
+  - component: {fileID: 5661565125202862971}
+  - component: {fileID: 6818603942009522343}
   m_Layer: 9
   m_Name: Ellen_5_End
   m_TagString: Untagged
@@ -1904,6 +1908,7 @@ Transform:
   - {fileID: 8270350145523138078}
   - {fileID: 467885543152348403}
   - {fileID: 3267180173506579919}
+  - {fileID: 3415653740906834113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &849668619281552211
@@ -2093,19 +2098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c374f3dda574da44c862b4f022e9b262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6245428492328359798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175987173423482132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d82f8d1547db845853570caac595ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_weaponHelper: {fileID: 0}
 --- !u!114 &3922952481909039624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2214,12 +2206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea7e96a16a6786459f382d69c2ec445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_detectionRange: 1
-  m_detectionRadius: 0.5
-  m_height: 1
-  m_detectionLayer:
-    serializedVersion: 2
-    m_Bits: 65608
+  m_sphereDetector: {fileID: 3484249246307287501}
 --- !u!114 &1360877836900490740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,6 +2239,74 @@ MonoBehaviour:
   <SpeedChangeRate>k__BackingField: 10
   <JumpHeight>k__BackingField: 1.2
   <FallTimeout>k__BackingField: 0.15
+--- !u!114 &6337464982428105929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175987173423482132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44a1009a3cf44f48ad2706cead7f530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_weaponHelper: {fileID: 0}
+  m_hitDetector: {fileID: 0}
+--- !u!114 &2929111131983831631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175987173423482132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9c62e7ddcfb6240b57bdca2029e5d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentHealth>k__BackingField: 0
+  m_maxHealth: 100
+  m_isInvincible: 0
+--- !u!114 &9160923138634364119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175987173423482132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5c42a0d1f3fd54bb32cf35d937342a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioSource: {fileID: 869138022782266775}
+--- !u!114 &5661565125202862971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175987173423482132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376e524a23b9cdf4683429cbd7e1ed75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_takeDamageEffect: {fileID: 0}
+--- !u!114 &6818603942009522343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175987173423482132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b5c5feee8b4fc44b5b526a4ee89b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sphereDetector: {fileID: 3484249246307287501}
 --- !u!1 &4213748351315289654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,6 +3577,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3896184246794794742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7099253706553410993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3415653740906834113}
+  - component: {fileID: 3484249246307287501}
+  m_Layer: 9
+  m_Name: InteractionSphereDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3415653740906834113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099253706553410993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8390219497811105986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3484249246307287501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099253706553410993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3896d1e8cb6ce418d8dfd53bb2c93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_detectionRange: 1
+  m_detectionRadius: 0.5
+  m_height: 1
+  m_detectionLayer:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!1 &7100955963020140864
 GameObject:
   m_ObjectHideFlags: 0
