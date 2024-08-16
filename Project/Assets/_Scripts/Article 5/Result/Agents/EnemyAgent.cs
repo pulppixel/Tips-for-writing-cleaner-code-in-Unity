@@ -15,11 +15,15 @@ namespace Tips.Part_5_End
 
         [SerializeField]
         private HitDetector m_hitDetector;
+
+        private Health m_health;
+
         protected override void Awake()
         {
             base.Awake();
             m_attackInput = GetComponent<IAgentAttackInput>();
             m_hitDetector = GetComponent<HitDetector>();
+            m_health = GetComponent<Health>();
         }
 
         /// <summary>
@@ -37,6 +41,10 @@ namespace Tips.Part_5_End
                 newState = new AttackState(m_agentAnimations, m_mover, m_agentStats, gameObject, m_hitDetector, 0.2f);
                 newState.AddTransition(new DelayedTransition(2f, typeof(MovementState)));
             }
+            else if (stateType == typeof(NavMeshNPCDeathState))
+            {
+                newState = new NavMeshNPCDeathState(gameObject);
+            }
             else
             {
                 newState = base.StateFactory(stateType);
@@ -45,7 +53,7 @@ namespace Tips.Part_5_End
                     newState.AddTransition(new MoveAttackTransition(m_attackInput));
                 }
             }
-
+            newState.AddTransition(new NPCDeathTransition(m_health));
             return newState;
         }
     }

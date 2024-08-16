@@ -1552,6 +1552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VegetationLarge05_02
       objectReference: {fileID: 0}
+    - target: {fileID: 4383705044087697777, guid: f7115f93fa4d70a47acbc431cc11055c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300004, guid: 48e9b3f8587ad7e46afa325dad953978, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
