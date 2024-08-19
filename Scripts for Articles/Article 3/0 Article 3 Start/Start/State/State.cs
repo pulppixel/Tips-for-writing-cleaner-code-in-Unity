@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Abstract definition of a State. Allows us to separate the Agents behaviors from the Agent script.
+    /// Most State Patterns requires at least 3 methods: OnEnter, OnExit and Update. Using OnTransitionEvent
+    /// allows us to separate State from knowing anything about the Agent itself and how it Transitions between
+    /// different states.
+    /// </summary>
     public abstract class State
     {
         protected List<ITransitionRule> _transitionRules = new();

@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// Defines NPC Interactable object that can be interacted with but
+    /// adds a delay between interactions
+    /// </summary>
     public class NPCInteractable : MonoBehaviour, IActiveInteractable, IAgentWaveInput
     {
         [SerializeField]

@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Monolithic script that defines a character controller for a player character.
+/// </summary>
 public class AgentMonolithic : MonoBehaviour
 {
     [Header("Movement Parameters")]

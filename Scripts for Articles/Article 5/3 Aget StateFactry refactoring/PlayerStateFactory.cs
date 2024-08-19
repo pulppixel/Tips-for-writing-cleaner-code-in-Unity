@@ -5,6 +5,13 @@ namespace Tips.Part_5_End
 {
     public class PlayerStateFactory : StateFactory
     {
+        /// <summary>
+        /// StateFactory for Player. It adds JumpState and other states specific to the
+        /// Player character. It also expects to receive PlayerStateFactoryData as
+        /// without it it can't initialize the Player specific states.
+        /// It inherits from StateFactory so that we can reuse the base implementation
+        /// of StateFactory.
+        /// </summary>
         public PlayerStateFactory(PlayerStateFactoryData stateFactoryData) : base(stateFactoryData)
         {
         }
@@ -64,6 +71,10 @@ namespace Tips.Part_5_End
         }
     }
 
+    /// <summary>
+    /// We inherit from StateFactoryData to add Player specific data only while
+    /// reusing the fields already defined inside the StateFactoryData.
+    /// </summary>
     public class PlayerStateFactoryData : StateFactoryData
     {
         public IAgentJumpInput JumpInput { get; set; }

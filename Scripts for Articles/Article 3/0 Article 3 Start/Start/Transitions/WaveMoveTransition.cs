@@ -2,6 +2,11 @@ using System;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Transitions from Movement to Wave state based on the transition length.
+    /// We should merge the LandMovement, InteractMovement and this transitions into a more abstract "DelayedTransition"
+    /// to avoid code duplication.
+    /// </summary>
     public class WaveMoveTransition : ITransitionRule
     {
         private float m_waveAnimationDelay = 1.4f;

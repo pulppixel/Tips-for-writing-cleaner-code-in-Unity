@@ -5,6 +5,9 @@ using PlayerInput = UnityEngine.InputSystem.PlayerInput;
 
 namespace Tips.Partm_1m_Start
 {
+    /// <summary>
+    /// Monolithic script that defines a character controller for a player character.
+    /// </summary>
     public class PlayerMonolithic : MonoBehaviour
     {
         [Header("Movement Parameters")]

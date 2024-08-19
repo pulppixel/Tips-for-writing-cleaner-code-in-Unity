@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Fall state triggers the Fall animation and applies gravity force to the character until we are again grounded.
+    /// </summary>
     public class FallState : State
     {
         private BasicCharacterControllerMover m_mover;

@@ -3,6 +3,10 @@ using UnityEngine.InputSystem;
 
 namespace Tips.Part_2_End
 {
+    /// <summary>
+    /// This script contains the logic to handle PlayerInput. I use string paths to connect to InputSystem but you could
+    /// also generate a script based on the Input Action Map. To learn more visit https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/manual/Concepts.html
+    /// </summary>
     public class PlayerGameInput : MonoBehaviour, IAgentMovementInput, IAgentJumpInput
     {
         private PlayerInput m_input;

@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Defines the logic for the Cinemachine to follow the Player and rotation based on the input
+    /// </summary>
     public class CameraFollow : MonoBehaviour
     {
         [Header("Camera")]

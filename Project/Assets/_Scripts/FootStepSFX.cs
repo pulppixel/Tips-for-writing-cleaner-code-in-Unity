@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Player footstep sound effect in sync with the animation
+/// </summary>
 public class FootStepSFX : MonoBehaviour
 {
     [Header("SFX")]

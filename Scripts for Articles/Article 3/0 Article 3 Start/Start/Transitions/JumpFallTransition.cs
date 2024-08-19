@@ -2,6 +2,11 @@ using System;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Transitions to the FallState the moment velocity Y is less then 0.
+    /// It requires a delay because of how JumpState works - that it sets the velocity
+    /// during the first update - but the Transition check runs before it. That is why we need the delay.
+    /// </summary>
     public class JumpFallTransition : ITransitionRule
     {
         public Type NextState => typeof(FallState);

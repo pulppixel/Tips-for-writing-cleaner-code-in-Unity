@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_1_Result
 {
+    /// <summary>
+    /// Monolithic script that defines a character controller for a player character.
+    /// </summary>
     public class AgentMonolithic : MonoBehaviour
     {
         [Header("Movement Parameters")]

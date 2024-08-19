@@ -1,5 +1,8 @@
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// LandState triggers the land animation and just waits until a transition based on the Land animation length occurs.
+    /// </summary>
     public class LandState : State
     {
         private AgentAnimations m_agentAnimations;

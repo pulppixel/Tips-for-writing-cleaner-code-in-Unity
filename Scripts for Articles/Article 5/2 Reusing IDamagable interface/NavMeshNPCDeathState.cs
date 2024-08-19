@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_5_End
 {
+    /// <summary>
+    /// State that disables NPCs Animator, Collider and NavMeshEnemyAI to
+    /// prevent it from moving while enabling the ragdoll effect
+    /// </summary>
     public class NavMeshNPCDeathState : State
     {
         private GameObject m_agent;

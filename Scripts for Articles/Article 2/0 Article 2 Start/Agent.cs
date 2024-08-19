@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_2_Start
 {
+    /// <summary>
+    /// Agent is a reusable concept of a character entity - Player / NPC that can move, jump, wave and interact with objects.
+    /// </summary>
     public class Agent : MonoBehaviour
     {
         [Header("Movement Parameters")]

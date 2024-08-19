@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Separates Movement logic from the Agent script. We could make it more abstract. Right now we
+    /// assume that we will always use CharacterController for movement.
+    /// </summary>
     public class BasicCharacterControllerMover : MonoBehaviour
     {
         [Header("Movement Parameters")]

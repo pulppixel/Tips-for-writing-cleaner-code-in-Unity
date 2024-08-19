@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Connects with Animator to trigger the animations. We utilizes Enums, fields and Dictionaries initialized on Awake()
+    /// to make it easier for us to add new triggers, bool flags and float parameters. The main task of it is to separate our Agent 
+    /// script from the Animator system.
+    /// </summary>
     public class AgentAnimations : MonoBehaviour
     {
         private Animator m_animator;

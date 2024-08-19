@@ -7,6 +7,10 @@ namespace Tips.Part_2_End
 {
     public class JumpTransition : ITransitionRule
     {
+        /// <summary>
+        /// Transition that utilizes IAgentJumpInput to listen to Input event in order to trigger the transition.
+        /// It adds a bit of a delay so that we can't jump immediatelly after landing. Thic condition is optional.
+        /// </summary>
         public Type NextState => typeof(JumpState);
         public float m_jumpTimeout = 0.20f;
 

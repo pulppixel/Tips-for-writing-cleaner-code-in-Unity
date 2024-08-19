@@ -2,6 +2,10 @@ using System;
 
 namespace Tips.Part_5_End
 {
+    /// <summary>
+    /// Transition that listens to the Health component 
+    /// and triggers the GetHitState whenever OnHit event is called
+    /// </summary>
     public class GetHitTransition : IEventTransitionRule
     {
         public Type NextState => typeof(GetHitState);

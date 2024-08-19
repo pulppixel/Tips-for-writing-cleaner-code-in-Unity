@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_2_End
 {
+    /// <summary>
+    /// MovementState happens when we are grounded and we want to stand idle or move around. There is some code duplication between Movement, Jump and Fall state.
+    /// I will address that in Article 3
+    /// </summary>
     public class MovementState : State
     {
         private BasicCharacterControllerMover m_mover;

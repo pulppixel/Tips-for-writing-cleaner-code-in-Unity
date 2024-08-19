@@ -2,6 +2,11 @@ using System;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Transitions to Wave state only based on the input event. We could make it more abstract to
+    /// a "InputTransition". We could do that by passing public Action delegate into the constructor 
+    /// like "public 'InputTransition(Action OnInput)'
+    /// </summary>
     public class MoveWaveTransition : IEventTransitionRule
     {
         private IAgentWaveInput m_waveInput;

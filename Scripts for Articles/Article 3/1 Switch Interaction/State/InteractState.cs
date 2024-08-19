@@ -2,7 +2,11 @@ using UnityEngine;
 
 namespace Tips.Part_3_End
 {
-
+    /// <summary>
+    /// InteractState integrates the Interaction System that we are introducing with our Sate Pattern. It has some addition "slowDownDelay" to allow
+    /// the movement animation to slow down gradually rather than making the character stop moving immediatelly. It also helps us to palay the Interaction
+    /// animation a bit before we trigger the animation. We could also use an AnimationEvent to trigger the interaction at a specific moment.
+    /// </summary>
     public class InteractState : State
     {
         private AgentAnimations m_agentAnimations;

@@ -3,6 +3,8 @@ using UnityEngine;
 namespace Tips.Part_5_Start
 {
     /// <summary>
+    /// Defines an interaction where object can be picked up and is destroyed
+    /// afterwards
     /// Affects the WeaponHelper to make it aware if the Agent has a weapon or not.
     /// Right now it only supports a single weapon type.
     /// </summary>

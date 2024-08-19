@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_2_Start
 {
+    /// <summary>
+    /// Implements an NPC Input that makes the NPC follow a predefined path.
+    /// Feel free to browse the code but AI is not the focus of this project.
+    /// </summary>
     public class NPCAIInput : MonoBehaviour, IAgentMovementInput
     {
         //NPC will follow a predefined path

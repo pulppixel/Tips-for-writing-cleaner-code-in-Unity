@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_4_End
 {
+    /// <summary>
+    /// Defines an interaction where object can be picked up and is destroyed
+    /// afterwards
+    /// </summary>
     public class WeaponPickUpInteraction : MonoBehaviour, IInteractable
     {
         public void Interact(GameObject interactor)

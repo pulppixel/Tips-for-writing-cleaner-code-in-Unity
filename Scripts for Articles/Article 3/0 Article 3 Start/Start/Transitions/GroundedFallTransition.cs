@@ -2,6 +2,9 @@ using System;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Based on the grounded flag transitions us to FallState
+    /// </summary>
     public class GroundedFallTransition : ITransitionRule
     {
         public Type NextState => typeof(FallState);

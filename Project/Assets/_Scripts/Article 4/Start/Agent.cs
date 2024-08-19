@@ -3,6 +3,10 @@ using UnityEngine;
 
 namespace Tips.Part_4_Start
 {
+    /// <summary>
+    /// Abstract definition of an agent that can move, can be animated,
+    /// can access input and detect if it is grounded.
+    /// </summary>
     public class Agent : MonoBehaviour
     {
         private BasicCharacterControllerMover m_mover;

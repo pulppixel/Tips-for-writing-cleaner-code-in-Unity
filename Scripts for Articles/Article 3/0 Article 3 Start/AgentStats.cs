@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Stores data such as MovementSpeed for each character separately. This is an improvement over the base State Pattern implementation from Article 2 where those
+/// values were hardcoded. This also serves a purpose of removing code / parameter duplication from Jump, Movement and Fall states.
+/// </summary>
 public class AgentStats : MonoBehaviour
 {
     [field: SerializeField]

@@ -2,6 +2,9 @@ using System;
 
 namespace Tips.Part_2_End
 {
+    /// <summary>
+    /// Checks if we are grounded before transitioning to the LandState
+    /// </summary>
     public class FallLandTransition : ITransitionRule
     {
         public Type NextState => typeof(LandState);

@@ -2,6 +2,10 @@ namespace Tips.Part_3_Start
 {
     public class WaveState : State
     {
+        /// <summary>
+        /// InteractState integrates the Interaction System that we are introducing with our Sate Pattern. Like the InteractState it has a slowDownDelay
+        /// that makes the movement animation to slow down gradually rather than making the character stop moving immediatelly. 
+        /// </summary>
         private AgentAnimations m_agentAnimations;
         private float m_slowDownDelay = 0.3f;
         private float m_delayTemp;

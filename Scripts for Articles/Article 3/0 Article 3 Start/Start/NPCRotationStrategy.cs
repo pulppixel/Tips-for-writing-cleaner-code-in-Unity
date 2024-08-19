@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// This script makes the NPC rotate towards the movement direction
+    /// </summary>
     public class NPCRotationStrategy : AgentRotationStrategy
     {
         protected override float RotationStrategy(Vector3 inputDirection)

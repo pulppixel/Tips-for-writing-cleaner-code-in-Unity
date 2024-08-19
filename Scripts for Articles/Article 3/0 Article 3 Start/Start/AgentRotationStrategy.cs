@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// An abstract class defining the way a character rotates. Created to separate AgentMonolithic script from the MainCamera that Player uses
+    /// for rotation.
+    /// </summary>
     public abstract class AgentRotationStrategy : MonoBehaviour
     {
         public float RotationCalculation(Vector2 movementInput, Transform agentTransform, ref float rotationVelocity, float RotationSmoothTime, float targetRotation)

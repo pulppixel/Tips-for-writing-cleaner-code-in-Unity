@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// Raycasts towards the ground to detect if we are grounded or not. We use an extra "StairsGrounded" flag
+    /// to prevent character from triggering Fall state when going down the stairs with some success.
+    /// </summary>
     public class GroundedDetector : MonoBehaviour
     {
         [field:SerializeField]

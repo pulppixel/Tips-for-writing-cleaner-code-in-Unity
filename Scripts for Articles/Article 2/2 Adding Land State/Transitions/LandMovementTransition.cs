@@ -2,6 +2,12 @@ using System;
 
 namespace Tips.Part_2_End
 {
+    /// <summary>
+    /// Waits the duration of Land Animation before transitioning.
+    /// One downside is that if we modify Land Animation we need to manually change it.
+    /// An alternative would be to ask Animator through AgentAnimations script about this length
+    /// or in some other way obtain it directly from the animation.
+    /// </summary>
     public class LandMovementTransition : ITransitionRule
     {
         //Land Animation length in seconds

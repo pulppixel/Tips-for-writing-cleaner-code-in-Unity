@@ -2,6 +2,9 @@ using System;
 
 namespace Tips.Part_3_End
 {
+    /// <summary>
+    /// Transitions between Movement State and Interact State by listening for Interact Input. 
+    /// </summary>
     public class MoveInteractTransition : IEventTransitionRule
     {
         private IAgentInteractInput m_interactInput;

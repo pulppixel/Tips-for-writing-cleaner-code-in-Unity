@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
+/// <summary>
+/// Player footstep sound effect in sync with the animation
+/// </summary>
 public class FootStepSFX : MonoBehaviour
 {
     [Header("SFX")]

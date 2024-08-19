@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_5_End
 {
+    /// <summary>
+    /// State that triggers Hit animation. It also stops player movement
+    /// </summary>
     public class GetHitState : State
     {
         private AgentAnimations m_agentAnimations;

@@ -2,6 +2,10 @@ using System;
 
 namespace Tips.Part_5_End
 {
+    /// <summary>
+    /// Transition that queries Health component to check if 
+    /// the CurrentHealth is less than or equal to 0
+    /// </summary>
     public class NPCDeathTransition : ITransitionRule
     {
         public Type NextState => typeof(NavMeshNPCDeathState);

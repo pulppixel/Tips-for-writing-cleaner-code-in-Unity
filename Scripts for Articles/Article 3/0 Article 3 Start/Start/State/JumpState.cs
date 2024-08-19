@@ -2,6 +2,11 @@ using UnityEngine;
 
 namespace Tips.Part_3_Start
 {
+    /// <summary>
+    /// JumpState triggers the Jump animation. In OnEnter it calculates the Jump vertical velocity. It is applied in the Update for consistency.
+    /// This might cause some issues as some transition will need to wait until the Update runs before they can check the Y velocity. For example
+    /// JumpFallTransition checks this value so we need to give it a small delay before it runs it check.
+    /// </summary>
     public class JumpState : State
     {
         private AgentAnimations m_agentAnimations;

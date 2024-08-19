@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_4_Start
 {
+    /// <summary>
+    /// Defined Interactable switch object that can be activated once
+    /// </summary>
     public class SwitchInteractable : MonoBehaviour, IInteractable
     {
         private bool m_isSwitched = false;

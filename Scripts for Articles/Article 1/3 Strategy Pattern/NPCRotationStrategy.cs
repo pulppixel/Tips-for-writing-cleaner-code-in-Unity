@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// This script makes the NPC rotate towards the movement direction
+/// </summary>
 public class NPCRotationStrategy : AgentRoatationStrategy
 {
     protected override float RotationStrategy(Vector3 inputDirection)

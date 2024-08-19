@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Tips.Part_3_End
 {
+    /// <summary>
+    /// Uses OverlapSphere to detect IInteractable objects with a collider / trigger in front of the Agent
+    /// </summary>
     public class InteractionDetector : MonoBehaviour
     {
         [SerializeField]
