@@ -4,7 +4,10 @@ This repository contains the source code for a series of articles about writing 
 
 ![Article 3 10 NPC Wave result processed gif](https://github.com/PetterSunnyVR/Tips-to-writing-cleaner-code-in-Unity-/assets/17239042/caa3436f-727b-41b4-9215-610e012e787d)
 
+
+
 ## Series Overview
+
 
 ### Article 1: Breaking Down the Monolith to Add an AI-Driven NPC
 
@@ -14,6 +17,8 @@ In this article, we refactor the initial project to separate concerns and make t
 - **Dependency Inversion Principle (DIP)**: Introducing abstractions to decouple the `PlayerMonolithic` from specific input implementations.
 - **Strategy Pattern**: Implementing different rotation strategies for the player and NPC.
 
+___
+
 ### Article 2: Adding a Jump Mechanic without Spaghetti Code
 
 This article demonstrates how to add a jumping mechanic to the game using the State Pattern, ensuring that the code remains clean and maintainable. Key topics covered:
@@ -21,6 +26,8 @@ This article demonstrates how to add a jumping mechanic to the game using the St
 - **State Pattern**: Separating different states (e.g., Movement, Jump, Fall) and their transitions.
 - **Transitions**: Defining transition rules to manage state changes.
 - **Interface Segregation Principle (ISP)**: Extending functionality without modifying existing code.
+
+___
 
 ### Article 3: Enabling Flexible Interactions through Interfaces
 
@@ -31,7 +38,29 @@ In this article, we build a modular interaction system using interfaces, allowin
 - **Open-Closed Principle (OCP)**: Extending the interaction system without modifying existing code.
 - **Interaction System**: Implementing interactable objects like levers and pickups.
 
+___
+
+### Article 4: Implementing a Damage System Using Interfaces
+In this article, we extend our project by introducing a flexible and reusable damage system through the use of interfaces. This approach enhances the scalability of the game while maintaining a clean and organized codebase. Key topics covered:
+
+- **Interfaces for Flexibility**: Using interfaces to create a damage system that can be applied to different entities (e.g., players, NPCs) without modifying existing code.
+- **Separation of Concerns**: Keeping the damage logic separate from other gameplay mechanics, allowing for easier updates and maintenance.
+- **Dependency Injection**: Injecting dependencies to make the damage system more modular and testable.
+
+___
+
+### Article 5: Refactoring the Agent System for Extensibility
+In the final article of the series, we focus on further refactoring the agent system to enhance the project's extensibility and maintainability. The improvements allow for easier integration of new features and better management of the codebase. Key topics covered:
+
+- **State Factory Refactoring**: Extracting the state creation logic into a factory class, reducing the complexity of agent classes.
+- **Modular Design**: Breaking down the AgentMonolithic class into smaller, manageable pieces, with none exceeding 100 lines of code.
+- **Code Metrics and Maintainability**: Evaluating the refactored code using metrics, emphasizing maintainability and ease of understanding.
+- **Interface Implementation**: Leveraging interfaces to create a reusable damage system, further decoupling the code and improving extensibility
+
+
+
 ## Getting Started
+
 
 ### Prerequisites
 
