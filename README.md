@@ -15,16 +15,17 @@ This repository contains the source code for a series of articles about writing 
 
 ### Installation
 
-1. Clone or downlaod this repository
-2. Open the "Project" fodler in Unity
-3. Search for "_Scritps" folder and you will find there a sepearate scene for Start and End of each Article
+1. Clone or download this repository
+2. Open the "Project" folder in Unity
+3. Search for "_Scritps" folder and inside it you will find folders called "Article 1" (up to "Article 5")
+4. Each folder contains "Start" and "Result" folder where you will find a unity scene that you can open and all the scripts used in it.
 
 ![image](https://github.com/PetterSunnyVR/Tips-to-writing-cleaner-code-in-Unity-/assets/17239042/007f0cab-2fdd-45d0-8331-d9d4523743b9)
 
 
 ### Scripts for Articles
 
-It contains scripts that I reference in the Article series to make it easier for the readers to follow along.
+It contains scripts that I reference in the Article series to make it easier for the readers to follow along. Scripts for each article are places in separate namespaces ex "Tips.Part_1_Result" or "Tips.Part_1_Start" so that you can follow along with our article series or preview the resuls.
 
 ## Series Overview
 
@@ -83,6 +84,7 @@ In the final article of the series, we focus on further refactoring the agent sy
 - [3D Game Kit Lite by Unity](https://assetstore.unity.com/packages/templates/tutorials/3d-game-kit-lite-135162),
 - [Food Props by Unity by Unity](https://assetstore.unity.com/packages/3d/food-props-163295),
 - [Starter Assets - ThirdPerson by Unity](https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526)
+- [Animations created using Unity Muse AI](https://unity.com/products/muse)
 
 ## License
 
