@@ -5,6 +5,26 @@ This repository contains the source code for a series of articles about writing 
 ![Article 3 10 NPC Wave result processed gif](https://github.com/PetterSunnyVR/Tips-to-writing-cleaner-code-in-Unity-/assets/17239042/caa3436f-727b-41b4-9215-610e012e787d)
 
 
+## Getting Started
+
+
+### Prerequisites
+
+- Unity 2022 LTS or higher
+- Basic understanding of C# and Unity
+
+### Installation
+
+1. Clone or downlaod this repository
+2. Open the "Project" fodler in Unity
+3. Search for "_Scritps" folder and you will find there a sepearate scene for Start and End of each Article
+
+![image](https://github.com/PetterSunnyVR/Tips-to-writing-cleaner-code-in-Unity-/assets/17239042/007f0cab-2fdd-45d0-8331-d9d4523743b9)
+
+
+### Scripts for Articles
+
+It contains scripts that I reference in the Article series to make it easier for the readers to follow along.
 
 ## Series Overview
 
@@ -57,28 +77,6 @@ In the final article of the series, we focus on further refactoring the agent sy
 - **Code Metrics and Maintainability**: Evaluating the refactored code using metrics, emphasizing maintainability and ease of understanding.
 - **Interface Implementation**: Leveraging interfaces to create a reusable damage system, further decoupling the code and improving extensibility
 
-
-
-## Getting Started
-
-
-### Prerequisites
-
-- Unity 2022 LTS or higher
-- Basic understanding of C# and Unity
-
-### Installation
-
-1. Clone or downlaod this repository
-2. Open the "Project" fodler in Unity
-3. Search for "_Scritps" folder and you will find there a sepearate scene for Start and End of each Article
-
-![image](https://github.com/PetterSunnyVR/Tips-to-writing-cleaner-code-in-Unity-/assets/17239042/007f0cab-2fdd-45d0-8331-d9d4523743b9)
-
-
-### Scripts for Articles
-
-It contains scripts that I reference in the Article series to make it easier for the readers to follow along.
 
 ## Assets Used:
 - [3D Game Kit by Unity](https://assetstore.unity.com/packages/templates/tutorials/unity-learn-3d-game-kit-115747),
