@@ -1,0 +1,24 @@
+.container {
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    -unity-font-style: bold;
+}
+
+.inforText {
+    color: rgb(255, 255, 255);
+    flex-wrap: wrap;
+    text-overflow: clip;
+}
+
+.container {
+}
+
+.controllsText {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    -unity-text-align: middle-center;
+}
