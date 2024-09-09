@@ -7,7 +7,7 @@
                 <engine:Label text="In this starting scene for Article 4 we will introduce an &lt;b&gt;Attack State&lt;/b&gt; using the State Pattern and a new &lt;b&gt;EnemyNPC&lt;/b&gt; that can attack the player and follow it using NavMesh-based movement.&#10;We will discuss the concepts of&lt;b&gt; Composition&lt;/b&gt; and &lt;b&gt;Inheritcance&lt;/b&gt; and how to use them to make our code easier to reuse." name="InformationLabel" class="inforText" style="flex-wrap: wrap; text-overflow: clip; -unity-text-align: lower-left; white-space: pre-wrap;" />
             </engine:VisualElement>
             <engine:VisualElement name="ControllsContainer" style="flex-grow: 1;">
-                <engine:Label text="Controlls:" name="HeaderLaber" class="header" style="background-color: rgba(0, 0, 0, 0.24);" />
+                <engine:Label text="Controls:" name="HeaderLaber" class="header" style="background-color: rgba(0, 0, 0, 0.24);" />
                 <engine:VisualElement name="WSAD" style="flex-grow: 0; flex-direction: row; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; height: 80px;">
                     <engine:VisualElement style="flex-grow: 0; flex-direction: row; background-image: url(&quot;project://database/Assets/Assets%20Used/CustomMade/wsad.png?fileID=2800000&amp;guid=2a99931910de7864e913a46b8e4ab8d2&amp;type=3#wsad&quot;); -unity-background-scale-mode: scale-to-fit; width: 80px; height: auto;" />
                     <engine:Label text="Movement" name="InformationLabel" class="controllsText" style="flex-wrap: wrap; text-overflow: clip; -unity-text-align: middle-left; white-space: pre-wrap; flex-grow: 1; height: auto;" />
