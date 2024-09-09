@@ -15,6 +15,8 @@ This repository contains the source code for a series of articles about writing 
 
 ### Installation
 
+This repository contains a 'Project' folder, which can be opened in Unity Hub, and a 'Scripts for Articles' folder, where you can find the scripts as they evolve with each article. This setup makes it easy to see how each script changes after refactoring or extending its functionality.
+
 1. Clone or download this repository
 2. Open the "Project" folder in Unity
 3. Search for "_Scritps" folder and inside it you will find folders called "Article 1" (up to "Article 5")
