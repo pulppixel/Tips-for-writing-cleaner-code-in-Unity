@@ -78,7 +78,7 @@ In the final article of the series, we explore the interface keyword which allow
 
 - **IDamagable interface**: How different objects can implement the same interface, allowing them to be treated uniformly—demonstrating polymorphism.
 - **Health system**: The Health script implements the IDamagable interface to react to the Attack State.
-- **Detecting Hit events**: Using the Physics.SphereCast() method to detect all objects that can be hit.
+- **Detecting Hit events**: Using the [Physics.SphereCast()](https://docs.unity3d.com/ScriptReference/Physics.SphereCast.html) method to detect all objects that can be hit.
 - **Implementing different Damagable objects**: Player, EnemyNPC, and Tree all implement the IDamagable interface, producing different results and feedback when hit.
 - **Refactoring State pattern**: To complete the project, we refactor the StateFactory() method into a separate inheritance hierarchy. This separates the responsibility of state creation from the Agent and its subclasses.
 
