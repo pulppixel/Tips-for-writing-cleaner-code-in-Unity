@@ -52,33 +52,35 @@ This article demonstrates how to add a jumping mechanic to the game using the St
 
 ___
 
-### Article 3: Enabling Flexible Interactions through Interfaces
+### Article 3: Adding a Modular Interaction System Using Interfaces
 
-In this article, we build a modular interaction system using interfaces, allowing for scalable and maintainable interactions in the game. Topics include:
+In this article, we build a modular interaction system using interfaces, enabling scalable and maintainable interactions in the game. Key topics include:
 
-- **Interfaces and Polymorphism**: Using interfaces to define common interaction behaviors.
-- **Composition over Inheritance**: Combining interfaces to build complex behaviors.
-- **Open-Closed Principle (OCP)**: Extending the interaction system without modifying existing code.
-- **Interaction System**: Implementing interactable objects like levers and pickups.
-
-___
-
-### Article 4: Implementing a Damage System Using Interfaces
-In this article, we extend our project by introducing a flexible and reusable damage system through the use of interfaces. This approach enhances the scalability of the game while maintaining a clean and organized codebase. Key topics covered:
-
-- **Interfaces for Flexibility**: Using interfaces to create a damage system that can be applied to different entities (e.g., players, NPCs) without modifying existing code.
-- **Separation of Concerns**: Keeping the damage logic separate from other gameplay mechanics, allowing for easier updates and maintenance.
-- **Dependency Injection**: Injecting dependencies to make the damage system more modular and testable.
+- **Creating modular interacton system**: How the IInteractable interface allows us to create a modular and flexible interaction system.
+- **Polymorphism**: How detecting objects of type IInteractable and passing a GameObject enables objects of different classes to be treated as instances of a common interface.
+- **Creating different interactions**: How we utilize the IInteractable interface to create a simple "switch," a pickable weapon, and NPC interactions.
 
 ___
 
-### Article 5: Refactoring the Agent System for Extensibility
-In the final article of the series, we focus on further refactoring the agent system to enhance the project's extensibility and maintainability. The improvements allow for easier integration of new features and better management of the codebase. Key topics covered:
+### Article 4: Composition vs. Inheritance
 
-- **State Factory Refactoring**: Extracting the state creation logic into a factory class, reducing the complexity of agent classes.
-- **Modular Design**: Breaking down the AgentMonolithic class into smaller, manageable pieces, with none exceeding 100 lines of code.
-- **Code Metrics and Maintainability**: Evaluating the refactored code using metrics, emphasizing maintainability and ease of understanding.
-- **Interface Implementation**: Leveraging interfaces to create a reusable damage system, further decoupling the code and improving extensibility
+In this article, we will explore the concepts of Composition and Inheritance. We will see how both can be used to make our code architecture more maintainable. Key topics covered:
+
+- **Inheritance vs Flexibility**: The pros and cons of each approach, and how using both is often the best solution for achieving flexibility and reusability.
+- **Agent Inheritance hierarchy**: Inheritance allows for the reuse of behaviors. We'll examine how creating an Agent inheritance tree helps separate Player, NPC, and EnemyNPC-specific logic into corresponding subclasses.
+- **Composition-based Movement System**: We'll explore how extracting the IAgentMover interface allows us to compose agents with different movement systems (e.g., EnemyNPC uses a NavMesh-based mover).
+
+___
+
+### Article 5: Interface keyword and how to use it for adding a Damage System 
+
+In the final article of the series, we explore the interface keyword which allows us to create systems that are easily extendable with new behaviors. Topics include:
+
+- **IDamagable interface**: How different objects can implement the same interface, allowing them to be treated uniformly—demonstrating polymorphism.
+- **Health system**: The Health script implements the IDamagable interface to react to the Attack State.
+- **Detecting Hit events**: Using the Physics.SphereCast() method to detect all objects that can be hit.
+- **Implementing different Damagable objects**: Player, EnemyNPC, and Tree all implement the IDamagable interface, producing different results and feedback when hit.
+- **Refactoring State pattern**: To complete the project, we refactor the StateFactory() method into a separate inheritance hierarchy. This separates the responsibility of state creation from the Agent and its subclasses.
 
 
 ## Assets Used:
