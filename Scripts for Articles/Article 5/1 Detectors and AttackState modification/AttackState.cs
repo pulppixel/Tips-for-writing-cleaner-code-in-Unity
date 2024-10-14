@@ -17,7 +17,7 @@ namespace Tips.Part_5_End
         private HitDetector m_hitDetector;
         /// <summary>
         /// m_detectionDelay allows us to integrate attack animation with the
-        /// code that calls TakeDamage(..) on the IDamagable objects.
+        /// code that calls TakeDamage(..) on the IDamageable objects.
         /// </summary>
         private float m_detectionDelay;
         private float m_currentTime = 0;
@@ -51,7 +51,7 @@ namespace Tips.Part_5_End
         /// <summary>
         /// We wait for the specified delay time before we call 
         /// PerformDetection and call TakeDamage(..) on the 
-        /// detected IDamagable components.
+        /// detected IDamageable components.
         /// </summary>
         /// <param name="deltaTime"></param>
         protected override void StateUpdate(float deltaTime)
@@ -62,7 +62,7 @@ namespace Tips.Part_5_End
             if (m_currentTime >= m_detectionDelay)
             {
                 m_currentTime = -1;
-                Dictionary<Collider, List<IDamagable>> result = m_hitDetector.PerformDetection();
+                Dictionary<Collider, List<IDamageable>> result = m_hitDetector.PerformDetection();
                 foreach (var collider in result.Keys)
                 {
                     foreach (var damageable in result[collider])

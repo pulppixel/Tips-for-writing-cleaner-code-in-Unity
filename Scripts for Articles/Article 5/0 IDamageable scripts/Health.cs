@@ -9,7 +9,7 @@ namespace Tips.Part_5_End
     /// OnHit event is invoked when the object takes damage to trigger
     /// state transition to GetHitState or DeathState.
     /// </summary>
-    public class Health : MonoBehaviour, IDamagable
+    public class Health : MonoBehaviour, IDamageable
     {
         [field: SerializeField]
         public int CurrentHealth { get; private set; }
@@ -28,7 +28,7 @@ namespace Tips.Part_5_End
 
         /// <summary>
         /// Additional method just to show that despite inheriting from
-        /// IDamagable interface the Health script can still have its own
+        /// IDamageable interface the Health script can still have its own
         /// methods.
         /// </summary>
         /// <param name="isInvincible"></param>
@@ -36,7 +36,7 @@ namespace Tips.Part_5_End
             => m_isInvincible = isInvincible;
 
         /// <summary>
-        /// Example of how we can leverage IDamagable interface to modify
+        /// Example of how we can leverage IDamageable interface to modify
         /// the health of an object.
         /// </summary>
         /// <param name="damageData"></param>
