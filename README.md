@@ -17,17 +17,17 @@ This repository contains the source code for a series of articles about writing 
 
 This repository contains a '**Project**' folder, which can be opened in Unity Hub, and a '**Scripts for Articles**' folder, where you can find the scripts as they evolve with each article. This setup makes it easy to see how each script changes after refactoring or extending its functionality.
 
-1. Clone or download this repository
-2. Open the "Project" folder in Unity Hub
-3. Search for "_Scritps" folder and inside it you will find folders called "Article 1" (up to "Article 5")
-4. Each folder contains "Start" and "Result" folder where you will find a unity scene that you can open and all the scripts used in it.
+1. Clone or download this repository,
+2. Open the "Project" folder in Unity Hub,
+3. Search for "_Scripts" folder and inside it you will find folders called "Article 1" (up to "Article 5"),
+4. Each folder contains "Start" and "Result" folder where you will find a unity scene that you can open and all the scripts used in it
 
 ![image](https://github.com/PetterSunnyVR/Tips-to-writing-cleaner-code-in-Unity-/assets/17239042/007f0cab-2fdd-45d0-8331-d9d4523743b9)
 
 
 ### Scripts for Articles
 
-It contains scripts that I reference in the Article series to make it easier for the readers to follow along. Scripts for each article are places in separate namespaces ex "**Tips.Part_1_Result**" or "**Tips.Part_1_Start**" so that you can follow along with our article series or preview the resuls.
+It contains scripts that I reference in the Article series to make it easier for the readers to follow along. Scripts for each article are placed in separate namespaces ex "**Tips.Part_1_Result**" or "**Tips.Part_1_Start**" so that you can follow along with our article series or preview the resuls.
 
 ## Series Overview
 
@@ -56,7 +56,7 @@ ___
 
 In this article, we build a modular interaction system using interfaces, enabling scalable and maintainable interactions in the game. Key topics include:
 
-- **Creating modular interacton system**: How the IInteractable interface allows us to create a modular and flexible interaction system.
+- **Creating a modular interaction system**: How the IInteractable interface allows us to create a modular and flexible interaction system.
 - **Polymorphism**: How detecting objects of type IInteractable and passing a GameObject enables objects of different classes to be treated as instances of a common interface.
 - **Creating different interactions**: How we utilize the IInteractable interface to create a simple "switch," a pickable weapon, and NPC interactions.
 
@@ -87,8 +87,8 @@ In the final article of the series, we explore the interface keyword which allow
 - [3D Game Kit by Unity](https://assetstore.unity.com/packages/templates/tutorials/unity-learn-3d-game-kit-115747),
 - [3D Game Kit Lite by Unity](https://assetstore.unity.com/packages/templates/tutorials/3d-game-kit-lite-135162),
 - [Food Props by Unity by Unity](https://assetstore.unity.com/packages/3d/food-props-163295),
-- [Starter Assets - ThirdPerson by Unity](https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526)
-- [Animations created using Unity Muse AI](https://unity.com/products/muse)
+- [Starter Assets - ThirdPerson by Unity](https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526),
+- [Animations created using Unity Muse AI](https://unity.com/products/muse),
 
 ## License
 
