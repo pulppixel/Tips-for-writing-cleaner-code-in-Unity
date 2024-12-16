@@ -10,7 +10,7 @@ This repository contains the source code for a series of articles about writing 
 
 ### Prerequisites
 
-- Unity 2022 LTS or higher
+- Unity 6000.0.17f1 or higher
 - Basic understanding of C# and Unity
 
 ### Installation
