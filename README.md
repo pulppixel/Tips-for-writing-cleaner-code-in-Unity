@@ -1,6 +1,6 @@
 # Tips for Writing Cleaner Code that Scales in Unity
 
-This repository contains the source code for a series of articles about writing cleaner and scalable code in Unity. The series is designed to help developers improve their coding practices by applying object-oriented design principles, SOLID principles, and design patterns. You can read the full series of articles at [Unity blog](https://unity.com/blog) (direct LINK will be added soon).
+This repository contains the source code for a series of articles about writing cleaner and scalable code in Unity. The series is designed to help developers improve their coding practices by applying object-oriented design principles, SOLID principles, and design patterns. You can read the full series of articles at [Unity Discussions](https://discussions.unity.com/t/tips-for-writing-cleaner-code-that-scales-in-unity-a-five-part-series/1570854) .
 
 ![Article 3 10 NPC Wave result processed gif](https://github.com/PetterSunnyVR/Tips-to-writing-cleaner-code-in-Unity-/assets/17239042/caa3436f-727b-41b4-9215-610e012e787d)
 
