@@ -4,7 +4,7 @@ using UnityEngine;
 /// This script allows us to base the Player avatar rotation based on the direction where the camera is looking
 /// while separating the MainCamera from the Agent main script
 /// </summary>
-public class PlayerRotationStrategy : AgentRoatationStrategy
+public class PlayerRotationStrategy : AgentRotationStrategy
 {
     [SerializeField]
     private GameObject m_mainCamera;

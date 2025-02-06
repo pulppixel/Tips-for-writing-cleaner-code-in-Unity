@@ -48,14 +48,14 @@ public class AgentMonolithic : MonoBehaviour
     private IAgentMovementInput m_input;
 
     [SerializeField]
-    private AgentRoatationStrategy m_rotationStrategy;
+    private AgentRotationStrategy m_rotationStrategy;
 
 
     private void Awake()
     {
         if (m_rotationStrategy == null)
         {
-            m_rotationStrategy = GetComponent<AgentRoatationStrategy>();
+            m_rotationStrategy = GetComponent<AgentRotationStrategy>();
         }
 
         m_animator = GetComponent<Animator>();
