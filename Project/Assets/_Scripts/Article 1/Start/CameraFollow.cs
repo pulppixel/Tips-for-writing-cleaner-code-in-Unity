@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Tips.Partm_1m_Start
+namespace Tips.Part_1_Start
 {
     public class CameraFollow : MonoBehaviour
     {

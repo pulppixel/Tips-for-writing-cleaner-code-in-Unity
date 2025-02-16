@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 using PlayerInput = UnityEngine.InputSystem.PlayerInput;
 
-namespace Tips.Partm_1m_Start
+namespace Tips.Part_1_Start
 {
     /// <summary>
     /// Monolithic script that defines a character controller for a player character.
@@ -18,7 +18,6 @@ namespace Tips.Partm_1m_Start
         public float FallTimeout = 0.15f;
 
         private CharacterController m_controller;
-        private PlayerInput m_input;
         private float m_speed;
         private float m_targetRotation = 0.0f;
         private float m_rotationVelocity;
@@ -51,64 +50,25 @@ namespace Tips.Partm_1m_Start
         private float m_animationMovementSpeed;
 
         //Input
-        private Vector2 m_movementInput, m_lookInput;
-        private bool m_isSprintingInput;
-
-
-        //Getting reference to Unity specific objects
+        private PlayerGameInput m_input;
+        
+        // 유니티 참조 얻기..
         private void Awake()
         {
-            // get a reference to our main camera
+            // Main Camera에 대한 참조 얻기
             if (m_mainCamera == null)
             {
                 m_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
             m_animator = GetComponent<Animator>();
             m_controller = GetComponent<CharacterController>();
-            m_input = GetComponent<PlayerInput>();
+            m_input = GetComponent<PlayerGameInput>();
         }
 
-        //Connecting to the InputSystem
-        private void OnEnable()
-        {
-            m_input.actions["Player/Move"].performed += OnMove;
-            m_input.actions["Player/Move"].canceled += OnMove;
-            m_input.actions["Player/Look"].performed += OnLook;
-            m_input.actions["Player/Look"].canceled += OnLook;
-            m_input.actions["Player/Sprint"].performed += OnSprint;
-        }
-
-        //Disconnecting from the InputSystem
-        private void OnDisable()
-        {
-            m_input.actions["Player/Move"].performed -= OnMove;
-            m_input.actions["Player/Move"].canceled -= OnMove;
-            m_input.actions["Player/Look"].performed -= OnLook;
-            m_input.actions["Player/Look"].canceled -= OnLook;
-            m_input.actions["Player/Sprint"].performed -= OnSprint;
-        }
-
-        private void OnLook(InputAction.CallbackContext context)
-        {
-            m_lookInput = context.ReadValue<Vector2>();
-
-        }
-
-        private void OnMove(InputAction.CallbackContext context)
-        {
-            m_movementInput = context.ReadValue<Vector2>();
-        }
-
-        private void OnSprint(InputAction.CallbackContext context)
-        {
-            m_isSprintingInput = context.ReadValueAsButton();
-
-        }
-
-        //All the logic connected with movement happens in the Update
+        // 이동과 관련된 모든 로직은 업데이트에서 관리
         private void Update()
         {
-            //Applying gravity force and controlling FALL animation
+            // 중력 및 낙하 애니메이션 제어
             if (Grounded == false)
             {
                 m_verticalVelocity += Gravity * Time.deltaTime;
@@ -130,56 +90,54 @@ namespace Tips.Partm_1m_Start
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, m_targetRotation, 0.0f) * Vector3.forward;
 
-            //move the character controller
-            m_controller.Move(targetDirection.normalized * (m_speed * Time.deltaTime) +
-                             new Vector3(0.0f, m_verticalVelocity, 0.0f) * Time.deltaTime);
+            // 캐릭터 컨트롤러의 Move
+            m_controller.Move(targetDirection.normalized * (m_speed * Time.deltaTime) + new Vector3(0.0f, m_verticalVelocity, 0.0f) * Time.deltaTime);
 
-            //play animations
+            // 애니메이션 재생
             m_animator.SetFloat(AnimationSpeedFloat, m_animationMovementSpeed);
         }
 
-        //Calculating the Avatar rotation base don the MainCamera and PlayerInput
+        // MainCamera와 PlayerInput으로 Avatar rotation base don 계산
         private void RotationCalculation()
         {
-            // normalize input direction
-            Vector3 inputDirection = new Vector3(m_movementInput.x, 0.0f, m_movementInput.y).normalized;
+            // 입력 방향 정규화 (Normalize)
+            Vector3 inputDirection = new Vector3(m_input.MovementInput.x, 0.0f, m_input.MovementInput.y).normalized;
 
-            //Rotation Code
-            if (m_movementInput != Vector2.zero)
+            // 회전 담당 코드
+            if (m_input.MovementInput != Vector2.zero)
             {
-                m_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                                  m_mainCamera.transform.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, m_targetRotation, ref m_rotationVelocity,
-                    RotationSmoothTime);
+                m_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + m_mainCamera.transform.eulerAngles.y;
+                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, m_targetRotation, ref m_rotationVelocity, RotationSmoothTime);
 
-                // rotate to face input direction relative to camera position
+                // 카메라 위치를 기준으로, Input 방향을 향하여 회전한다. 
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
         }
 
-        //Calculating the movement speed and controlling the MOVEMENT animation
+        // 이동 속도 계산 및 "움직임" 애니메이션 제어
         private void CharacterMovementCalculation()
         {
-            float targetSpeed = m_isSprintingInput ? SprintSpeed : MoveSpeed;
+            float targetSpeed = m_input.SprintInput ? SprintSpeed : MoveSpeed;
 
 
-            if (m_movementInput == Vector2.zero)
+            if (m_input.MovementInput == Vector2.zero)
+            {
                 targetSpeed = 0.0f;
+            }
 
-            // a reference to the players current horizontal velocity
+            // 플레이어의 현재 Horizontal Velocity에 대한 참조
             float currentHorizontalSpeed = new Vector3(m_controller.velocity.x, 0.0f, m_controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
-            float inputMagnitude = m_movementInput.magnitude;
+            float inputMagnitude = m_input.MovementInput.magnitude;
 
-            // accelerate or decelerate to target speed
+            // 목표 속도로 가속 or 감속
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
                 currentHorizontalSpeed > targetSpeed + speedOffset)
             {
                 // creates curved result rather than a linear one giving a more organic speed change
                 // note T in Lerp is clamped, so we don't need to clamp our speed
-                m_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                    Time.deltaTime * SpeedChangeRate);
+                m_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 
                 // round speed to 3 decimal places
                 m_speed = Mathf.Round(m_speed * 1000f) / 1000f;
@@ -191,10 +149,12 @@ namespace Tips.Partm_1m_Start
 
             m_animationMovementSpeed = Mathf.Lerp(m_animationMovementSpeed, targetSpeed, Time.deltaTime * SpeedChangeRate);
             if (m_animationMovementSpeed < 0.01f)
+            {
                 m_animationMovementSpeed = 0f;
+            }
         }
 
-        //Camera movement in the LateUpdate for more consistent results
+        // 일관된 결과를 위한.. CameraMovement (LateUpdate)
         private void LateUpdate()
         {
             CameraRotation();
@@ -202,23 +162,22 @@ namespace Tips.Partm_1m_Start
 
         private void CameraRotation()
         {
-            // if there is an input and camera position is not fixed
-            if (m_lookInput.sqrMagnitude >= m_cameraRotationThreshold)
+            // Input이 있고, 카메라 위치가 고정되어 있지 않은 경우
+            if (m_input.CameraInput.sqrMagnitude >= m_cameraRotationThreshold)
             {
-                //Don't multiply mouse input by Time.deltaTime;
+                // 마우스 입력에는 Time.deltaTime; 을 곱하면 안된다.
                 float deltaTimeMultiplier = 1.0f;
 
-                m_cinemachineTargetYaw += m_lookInput.x * deltaTimeMultiplier;
-                m_cinemachineTargetPitch += m_lookInput.y * deltaTimeMultiplier;
+                m_cinemachineTargetYaw += m_input.CameraInput.x * deltaTimeMultiplier;
+                m_cinemachineTargetPitch += m_input.CameraInput.y * deltaTimeMultiplier;
             }
 
-            // clamp our rotations so our values are limited 360 degrees
+            // 값이 360도로 제한되도록 회전값 고정
             m_cinemachineTargetYaw = ClampAngle(m_cinemachineTargetYaw, float.MinValue, float.MaxValue);
             m_cinemachineTargetPitch = ClampAngle(m_cinemachineTargetPitch, BottomCameraLimit, TopCameraLimit);
 
-            // Cinemachine will follow this target
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(m_cinemachineTargetPitch,
-                m_cinemachineTargetYaw, 0.0f);
+            // 시네머신은 이 Target을 따른다.
+            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(m_cinemachineTargetPitch, m_cinemachineTargetYaw, 0.0f);
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -228,7 +187,7 @@ namespace Tips.Partm_1m_Start
             return Mathf.Clamp(lfAngle, lfMin, lfMax);
         }
 
-        //Grounded checks that allows us to swap between FALL and MOVEMENT animation / behavior
+        // FALL과 MOVEMENT 애니메이션, Behavior 사이클을 전환할 수 있는 Grounded Check
         private void FixedUpdate()
         {
             Grounded = GroundedCheck(GroundedOffset);
@@ -236,17 +195,15 @@ namespace Tips.Partm_1m_Start
             m_animator.SetBool(AnimationGroundedBool, Grounded);
         }
 
-        //Spherecasting downwards to detect if we are grounded
+        // 아래쪽으로 Sphere Casting하여 Ground에 닿았는지 확인
         private bool GroundedCheck(float groundedOffset)
         {
-            // set sphere position, with offset
-            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y + groundedOffset,
-                transform.position.z);
-            return Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
-                QueryTriggerInteraction.Ignore);
+            // Sphere 위치 설정, Offset 포함
+            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y + groundedOffset, transform.position.z);
+            return Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
         }
 
-        //Visualizaton of the Grounded check
+        // Ground Check의 시각화
         private void OnDrawGizmosSelected()
         {
             Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
@@ -256,9 +213,7 @@ namespace Tips.Partm_1m_Start
             else Gizmos.color = transparentRed;
 
             // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-            Gizmos.DrawSphere(
-                new Vector3(transform.position.x, transform.position.y + GroundedOffset, transform.position.z),
-                GroundedRadius);
+            Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y + GroundedOffset, transform.position.z), GroundedRadius);
         }
     }
 }
