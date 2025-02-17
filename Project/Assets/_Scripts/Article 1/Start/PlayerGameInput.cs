@@ -8,13 +8,13 @@ namespace Tips.Part_1_Start
     /// PlayerInput 처리용 로직..
     /// 이는 String Paths가 아닌, Input Action Map으로도 처리가 가능하다.
     /// </summary>
-    public class PlayerGameInput : MonoBehaviour
+    public class PlayerGameInput : MonoBehaviour, IAgentMovementInput
     {
         private PlayerInput m_input;
         
         public Vector2 MovementInput { get; private set; }
-        public Vector2 CameraInput { get; private set; }
         public bool SprintInput { get; private set; }
+        public Vector2 CameraInput { get; private set; }
 
         private void Awake()
         {

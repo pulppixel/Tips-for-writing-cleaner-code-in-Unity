@@ -6,9 +6,9 @@ using PlayerInput = UnityEngine.InputSystem.PlayerInput;
 namespace Tips.Part_1_Start
 {
     /// <summary>
-    /// Monolithic script that defines a character controller for a player character.
+    /// Monolithic script는 플레이어 캐릭터의 Character Controller를 정의한다.
     /// </summary>
-    public class PlayerMonolithic : MonoBehaviour
+    public class AgentMonolithic : MonoBehaviour
     {
         [Header("Movement Parameters")]
         public float MoveSpeed = 2.0f;
@@ -39,7 +39,6 @@ namespace Tips.Part_1_Start
         private GameObject m_mainCamera;
         private float m_cinemachineTargetYaw;
         private float m_cinemachineTargetPitch;
-        private const float m_cameraRotationThreshold = 0.01f;
 
         [Header("Animations")]
         public string AnimationSpeedFloat;
@@ -50,7 +49,7 @@ namespace Tips.Part_1_Start
         private float m_animationMovementSpeed;
 
         //Input
-        private PlayerGameInput m_input;
+        private IAgentMovementInput m_input;
         
         // 유니티 참조 얻기..
         private void Awake()
@@ -62,7 +61,7 @@ namespace Tips.Part_1_Start
             }
             m_animator = GetComponent<Animator>();
             m_controller = GetComponent<CharacterController>();
-            m_input = GetComponent<PlayerGameInput>();
+            m_input = GetComponent<IAgentMovementInput>();
         }
 
         // 이동과 관련된 모든 로직은 업데이트에서 관리
@@ -152,39 +151,6 @@ namespace Tips.Part_1_Start
             {
                 m_animationMovementSpeed = 0f;
             }
-        }
-
-        // 일관된 결과를 위한.. CameraMovement (LateUpdate)
-        private void LateUpdate()
-        {
-            CameraRotation();
-        }
-
-        private void CameraRotation()
-        {
-            // Input이 있고, 카메라 위치가 고정되어 있지 않은 경우
-            if (m_input.CameraInput.sqrMagnitude >= m_cameraRotationThreshold)
-            {
-                // 마우스 입력에는 Time.deltaTime; 을 곱하면 안된다.
-                float deltaTimeMultiplier = 1.0f;
-
-                m_cinemachineTargetYaw += m_input.CameraInput.x * deltaTimeMultiplier;
-                m_cinemachineTargetPitch += m_input.CameraInput.y * deltaTimeMultiplier;
-            }
-
-            // 값이 360도로 제한되도록 회전값 고정
-            m_cinemachineTargetYaw = ClampAngle(m_cinemachineTargetYaw, float.MinValue, float.MaxValue);
-            m_cinemachineTargetPitch = ClampAngle(m_cinemachineTargetPitch, BottomCameraLimit, TopCameraLimit);
-
-            // 시네머신은 이 Target을 따른다.
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(m_cinemachineTargetPitch, m_cinemachineTargetYaw, 0.0f);
-        }
-
-        private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
-        {
-            if (lfAngle < -360f) lfAngle += 360f;
-            if (lfAngle > 360f) lfAngle -= 360f;
-            return Mathf.Clamp(lfAngle, lfMin, lfMax);
         }
 
         // FALL과 MOVEMENT 애니메이션, Behavior 사이클을 전환할 수 있는 Grounded Check
